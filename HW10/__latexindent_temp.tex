@@ -1,0 +1,141 @@
+%Do not alter this block of commands. If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in, bottom=4.5cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ, scrextend}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{tikz}   
+\usepackage{tikz-3dplot} 
+\usepackage{amssymb} 
+\usepackage{xifthen}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries
+#2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Proof.}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Trey Manuszak}  %replace with your name
+\rhead{MAT 473: Intermediate Real Analysis II \\ Homework 9: 33, 34, 35, 36} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{blindtext}
+\title{MAT 473: Intermediate Real Analysis II}
+\date{April 3, 2020}
+\author{Trey Manuszak\\ Arizona State University}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\maketitle
+\newpage
+
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{33}
+Recall the $\textit{Borel } \sigma\textit{-algebra}$ $\mathcal{B}_\mathbb{R}$ from the course notes. Prove that $\mathcal{B}_\mathbb{R}$ is generated as a $\sigma$-algebra by the collection of closed intervals $\{[a,\infty) : a \in \mathbb{R}\}$.
+\end{problem}
+\begin{sol}
+Let $\mathcal{O}$ denote the collection of all open intervals in $\mathbb{R}$. Since every open set in $\mathbb{R}$ is at most a countable union of open intervals, Then $\mathcal{M}(\mathcal{O}) = \mathcal{B}_\mathbb{R}$. Let $\mathcal{E}$ denote the collection of intervals of the form $[a,\infty)$ for all $a \in \mathbb{R}$. Let $(a,b) \in \mathcal{O}$ for some $a,b \in \mathbb{R}$ such that $b > a$. Let $a_n = a + \frac{1}{n}$ and $b_n = b - \frac{1}{n}$. Then, $$(a,b) = \bigcup_{n = 1}^\infty[a_n,b_n) = \bigcup_{n = 1}^\infty \{[a_n,\infty) \cap [b_n,\infty)^c\},$$ which implies that $(a,b) \in \mathcal{M}(\mathcal{E})$. This means that $\mathcal{O} \subseteq \mathcal{M}(\mathcal{E})$, which implies $\mathcal{M}(\mathcal{O}) \subseteq \mathcal{M}(\mathcal{E})$. But, since every element of $\mathcal{E}$ is closed, then $\mathcal{M}(\mathcal{E}) \subseteq \mathcal{B}_\mathbb{R}$. This gives us $$\mathcal{B}_\mathbb{R} = \mathcal{M}(\mathcal{O}) \subseteq \mathcal{M}(\mathcal{E}) \subseteq \mathcal{B}_\mathbb{R}.$$ Therefore, $\mathcal{M}(\mathcal{E}) = \mathcal{B}_\mathbb{R}$.
+\end{sol}
+
+
+
+\begin{problem}{34}
+Prove that for every subset $E \subseteq \mathbb{R}$ there is a $G_\delta$-set $A$ with $E \subseteq A$ and $m^*(E) = m^*(A)$.
+\end{problem}
+
+\begin{sol}
+Let $E \subseteq \mathbb{R}$ be arbitrary. By outer-measure, there exists a collection of open intervals $I_n \subseteq \mathbb{R}$ such that $E \subseteq \cup_{n = 1}^\infty I_n$. From the result of Problem 31, this gives us $$m^*(E) \leq \sum_{n = 1}^\infty m(I_n) < m^*(E) + \frac{1}{n}.$$ Also, by countable subadditivity, $m^*(\cup_{n = 1}^\infty I_n) \leq \sum_{n = 1}^\infty m(I_n)$. Let $A = \cap_{n = 1}^\infty \cup_{n = 1}^\infty I_n$. Then, $A$ is a $G_\delta$-set. This gives us $E \subseteq A$. Then, for each $n$, we get $$m^*(E) \leq m^*(A) \leq m^*(\cup_{n = 1}^\infty I_n) \leq \sum_{n = 1}^\infty m(I_n) < m^*(E) + \frac{1}{n}.$$ Therefore, by squeeze theorem, as $n$ approaches $\infty$, then $m^*(E) = m^*(A)$.
+\end{sol}
+
+%\begin{sol}
+%Let $E \subseteq \mathbb{R}$ be arbitrary. For each $i \in \mathbb{Z}^+$, there exists $A_i$ open such that $E \subseteq A_i$. Let $$A = \bigcap_{i = 1}^\infty A_i.$$ Note, $A$ is a $G_\delta$ set and is measurable and $E \subseteq A$. 
+%\end{sol}
+
+
+
+\begin{problem}{35}
+Let $f : \mathbb{R} \to \mathbb{R}$ be a function. Let $A = \{x \in \mathbb{R} : f \text{ is continuous at } x\}$. Prove that $A$ is a $G_\delta$-set. (Hint: use the oscillation of $f$ from homework 8.)
+\end{problem}
+\begin{sol}
+Let $A = \{x \in \mathbb{R} : f \text{ is continuous at } x\}$. Note, $f$ is continuous at $c$ if and only if $\text{osc}(f,c) = 0$. That is, $f$ is continuous at $c$ if and only if \begin{align*}
+    \limsup\limits_{x\to c}f(x) = \liminf\limits_{x \to c}f(x). \tag*{(I like this definition provided by \cite{royden2010real})}
+\end{align*}
+So, by looking at the complement of $A$, we get \begin{align*}
+    A^c &= \left\{x \in \mathbb{R} : \liminf\limits_{x \to c}f(x) < \limsup\limits_{x\to c}f(x)\right\} \\
+    &= \left\{ x \in \mathbb{R} : \exists a,b \in \mathbb{Q} \text{ s.t. } \liminf\limits_{x \to c}f(x) \leq a < b \leq \limsup\limits_{x\to c}f(x) \right\} \\
+    &= \bigcup_{a,b} \left( \left\{ x \in \mathbb{R} : \liminf\limits_{x \to c}f(x) \leq a \right\} \bigcap \left\{ x \in \mathbb{R} : b \leq \limsup\limits_{x\to c}f(x) \right\} \right). \tag*{(with $a < b$)}
+\end{align*}
+\hspace{1em}Note, if $\liminf\limits_{x \to c}f(x) > a$, then there must exist $\epsilon > 0$ arbitrary but fixed such that $\inf_{\left| x - c \right| < \epsilon}f(x) > a$. Now, for each $x \in B_\epsilon(c)$, there is $\epsilon_0 > 0$ arbitrary but fixed such that $B_{\epsilon_0}(x) \subset B_\epsilon(c)$. So, we get $$\inf_{\left| x - c' \right| < \epsilon_0}f(x) \geq \inf_{\left| x - c \right| < \epsilon}f(x) > a.$$ This means that $\left\{ x \in \mathbb{R} : \liminf\limits_{x \to c}f(x) > a \right\}$ is open, which implies $\left\{ x \in \mathbb{R} : \liminf\limits_{x \to c}f(x) \leq a \right\}$ is closed. We can similarly show that $\left\{ x \in \mathbb{R} : b \leq \limsup\limits_{x\to c}f(x) \right\}$ is closed since $\limsup\limits_{x\to c}f(x) = - \left( \liminf\limits_{x \to c}(-f(x)) \right)$.
+
+Finally, since each set in the pair of a countable union defined above is closed, then $A^c$ is a $F_\sigma$-set, which implies $A$ is a $G_\delta$-set.
+\end{sol}
+
+
+
+\begin{problem}{36}
+For subsets $A,B \subseteq \mathbb{R}$ recall that the \textit{distance} between $A$ and $B$ is defined to be $\text{dist}(A,B) = \text{inf}\{ \left| x - y \right| : x \in A, y \in B \}$. Let $A$ and $B$ be subsets of $\mathbb{R}$ such that $\text{dist}(A,B) > 0$. Prove that $m^*(A \cup B) = m^*(A) + m^*(B)$. 
+%(Hint: first prove the following lemma:
+\end{problem}
+\begin{sol}
+Let $A,B \subseteq \mathbb{R}$. Let $\epsilon > 0$ be arbitrary but fixed such that $\text{dist}(A,B) \geq \epsilon$. Let $E = \cup_{x \in A}B_{\frac{\epsilon}{2}}(x)$. Then, $A \subset E$. Also, since $E$ used the ball of radius $\frac{\epsilon}{2}$, then $E \cap B = \emptyset$. Also, since $E$ used a countable union of open balls, then $E$ is measurable. This gives us $m^*(A \cup B) = m^*((A \cup B) \cap E) + m^*((A \cup B) \cap E^c)$ from Definition 17.1 in the notes. But, note that $(A \cup B) \cap E^c = B$ and $(A \cup B) \cap E = A$. Therefore, we have $m^*(A \cup B) = m^*(A) + m^*(B)$.
+\end{sol}
+
+
+
+%\begin{lemma}{1}
+%Let $-\infty < a < b < \infty$ and let $\epsilon > 0$. There are open intervals $I_1, \dots, I_n$ such that 
+%\begin{itemize}
+%    \item $(a,b) = \cup_{i = 1}^nI_i$
+    
+%    \item $\sum_{i = 1}^n \left| I_i \right| < b - a + \epsilon$ (where $\left| I \right|$ denotes the length of the interval $I$)
+    
+%    \item $\left| I_i \right| < \epsilon$ for $1 \leq i \leq n$
+%\end{itemize}
+%\end{lemma}
+
+
+\medskip
+
+%Sets the bibliography style to UNSRT and imports the 
+%bibliography file "samples.bib".
+\bibliographystyle{unsrt}
+\bibliography{HW10}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
