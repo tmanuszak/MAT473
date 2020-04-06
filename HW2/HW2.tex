@@ -1,0 +1,158 @@
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in, bottom=4.5cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ, scrextend}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Proof.}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Trey Manuszak}  %replace with your name
+\rhead{MAT 473: Intermediate Real Analysis II \\ Homework 2: 5, 6, 7, 8} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{blindtext}
+\title{MAT 473: Intermediate Real Analysis II}
+\date{January 31, 2020}
+\author{Trey Manuszak\\ Arizona State University}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\maketitle
+\newpage
+
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{5} 
+Let $f : M_{m \times n} \to M_n$ be given by $f(A) = A^tA$. Prove that $f$ is differentiable, and find a formula for $f'(A)$. (Hint: use facts about the operator norm and the transpose of a matrix.)
+\end{problem}
+\begin{sol}
+Let $f : M_{m \times n} \to M_n$ be given by $f(A) = A^tA$. Let $A \in M_{m \times n}$. Define $T \in B(M_{m \times n}, M_n)$ by $T(h) = A^th + h^tA$. Also, define $\lVert \cdot \rVert_E$ as the Euclidean norm and $\lVert \cdot \rVert_O$ as the operator norm.  Then \begin{align*}
+    \lim_{h \to 0} \frac{\lVert f(A + h) - f(A) - T(h)\rVert_O}{\lVert h \rVert_O} &= \lim_{h \to 0} \frac{\lVert (A+h)^t(A+h) - A^tA - A^th - h^tA \rVert_O}{\lVert h \rVert_O} \tag*{(Definition of $f$ and $T$)} \\ &= \lim_{h \to 0} \frac{\lVert (A+h)^tA + (A+h)^th - A^tA - A^th - h^tA \rVert_O}{\lVert h \rVert_O} \tag*{(By distribution)} \\ &= \lim_{h \to 0} \frac{\lVert (A^t+h^t)A + (A^t+h^t)h - A^tA - A^th - h^tA \rVert_O}{\lVert h \rVert_O} \tag*{(Property of transpose)} \\ &= \lim_{h \to 0} \frac{\lVert A^tA+h^tA + A^th+h^th - A^tA - A^th - h^tA \rVert_O}{\lVert h \rVert_O} \tag*{(By distribution)} \\ &= \lim_{h \to 0} \frac{\lVert h^th \rVert_O}{\lVert h \rVert_O} \tag*{(By subtraction)} \\ &\leq \frac{\lVert h^t \rVert_O \cdot \lVert h \rVert_O}{\lVert h \rVert_O} \tag*{(Property of operator norm)} \\ &= \lim_{h \to 0} \frac{\lVert h \rVert_O^2}{\lVert h \rVert_O} \tag*{(Property of operator norm)} \\ &= \lim_{h \to 0} \lVert h \rVert_O \\ &= 0.
+\end{align*}
+Since $0 \leq \lim_{h \to 0} \frac{\lVert f(A + h) - f(A) - T(h)\rVert_O}{\lVert h \rVert_O}$, then by squeeze theorem, $\lim_{h \to 0} \frac{\lVert f(A + h) - f(A) - T(h)\rVert_O}{\lVert h \rVert_O} = 0$. Also, we know that, $\lim_{h \to 0} \frac{f(A+h) - f(A) - T(h)}{\lVert h \rVert_E} = 0 \Longleftrightarrow\lim_{h \to 0} \frac{\lVert f(A + h) - f(A) - T(h)\rVert_E}{\lVert h \rVert_E} = 0$. Thus, since $A \in M_{m \times n} = \mathbb{R}^{mn}$, then any two norms are comparable by Corollary 2.11, which implies there exists $k_1,k_2 \in \mathbb{R}$ such that for all $x \in \mathbb{R}$, $\lVert x \rVert_0 \leq k_1 \cdot \lVert x \rVert_E$ and $\lVert x \rVert_E \leq k_2 \cdot \lVert x \rVert_O$. Then, we get \begin{align*}
+    \lim_{h \to 0} \frac{\lVert f(A+h) - f(A) - T(h) \rVert_E}{\lVert h \rVert_E} &\leq \lim_{h \to 0} \frac{k_2 \lVert f(A+h) - f(A) - T(h) \rVert_O}{\frac{1}{k_1}\lVert h \rVert_O} \tag*{(By comparability of $\lVert \cdot \rVert_E$ and $\lVert \cdot \rVert_O$)} \\ &= k_1k_2 \lim_{h \to 0} \frac{\lVert f(A+h) - f(A) - T(h) \rVert_O}{\lVert h \rVert_O} \tag*{(Property of limits)} \\ &= k_1k_2 \cdot 0 \\ &= 0.
+\end{align*}
+Since, $0 \leq \lim_{h \to 0} \frac{\lVert f(A+h) - f(A) - T(h) \rVert_E}{\lVert h \rVert_E}$, then by squeeze theorem, $\lim_{h \to 0} \frac{\lVert f(A+h) - f(A) - T(h) \rVert_E}{\lVert h \rVert_E} = 0$. This implies, $\lim_{h \to 0} \frac{f(A+h) - f(A) - T(h)}{\lVert h \rVert_E} = 0$. Thus, $f$ is differentiable at $A$. However, since $A$ was arbitrary, then $f$ is differentiable for all $A \in M_{m \times n}$. Therefore, $f'(A)(h) = A^th + h^tA$.
+\end{sol}
+
+\begin{problem}{6} 
+Let $f: \mathbb{R}^2 \to \mathbb{R}$ be given by $$f(x) = \begin{cases} 
+     \frac{x_1^2 x_2}{\lVert x \rVert^2}, & \text{if } x \neq 0 \\
+      0, & \text{if } x = 0. 
+   \end{cases}
+$$ Prove that all directional derivatives of $f$ exist at 0, and that $D_vf(0)$ is not a linear function of $v$.
+\end{problem}
+\begin{sol}
+Let $f: \mathbb{R}^2 \to \mathbb{R}$ be given by $$f(x) = \begin{cases} 
+     \frac{x_1^2 x_2}{\lVert x \rVert^2}, & \text{if } x \neq 0 \\
+      0, & \text{if } x = 0. 
+   \end{cases}
+$$ Let $v \in \mathbb{R}^2 \setminus (0, 0)$. Then, \begin{align*}
+    D_vf(0) &= \lim_{t \to 0} \frac{f(0 + tv) - f(0)}{t} \tag*{(Definition of $D_vf(x)$ in $\mathbb{R}^2$)} \\ &= \lim_{t \to 0} \frac{\frac{(tv_1)^2(tv_2)}{\lVert tv \rVert^2} - 0}{t} \tag*{(Definition of $f$} \\ &= \lim_{t \to 0} \frac{t^2v_1^2tv_2}{t\sqrt{(tv_1)^2+(tv_2)^2}^2} \tag*{(Definition of Euclidean norm)} \\ &= \lim_{t \to 0} \frac{t^2v_1^2v_2}{t^2v_1^2 + t^2v_2^2} \\ &= \lim_{t \to 0} \frac{t^2v_1^2v_2}{t^2(v_1^2 + v_2^2)} \tag*{(by factoring $t^2$)} \\ &= \lim_{t \to 0} \frac{v_1^2v_2}{v_1^2 + v_2^2}.
+\end{align*}
+Also, we have \begin{align*}
+    D_{(0, 0)}f(0) &= \lim_{t \to 0} \frac{f(0 + t \cdot 0) - f(0)}{t} \\ &= \lim_{t \to 0} \frac{0}{t} \\ &= 0.
+\end{align*}
+So, we have $D_vf(0):\mathbb{R}^2 \to \mathbb{R}$ defined by $$D_vf(0) = \begin{cases} 
+     \frac{v_1^2 v_2}{v_1^2 + v_2^2}, & \text{if } v \neq 0 \\
+      0, & \text{if } v = 0. 
+   \end{cases}$$
+Consider $p = (1, 0)$ and $q = (0, 1)$. Then, $D_pf(0) = \frac{1^2 \cdot 0}{1^2 + 0^2} = 0$ and $D_qf(0) = \frac{0^2 \cdot 1}{0^2 + 1^2} = 0$, and $D_{p + q}f(0) = \frac{1^2 \cdot 1}{1^2 + 1^2} = \frac{1}{2}$. Therefore, $D_vf(0)$ is not linear since $D_{p + q}f(0) = \frac{1}{2} \neq 0 = 0 + 0 = D_pf(0) + D_qf(0)$.
+\end{sol}
+
+\begin{problem}{7}
+Let $f: \mathbb{R}^2 \to \mathbb{R}$ be given by $$f(x) = \begin{cases} 
+     \frac{x_1 x_2^3}{x_1^2 + x_2^4}, & \text{if } x \neq 0 \\
+      0, & \text{if } x = 0. 
+   \end{cases}
+$$ Prove that all directional derivatives of $f$ exist at 0, that $D_vf(0)$ is a linear function of $v$, and that $f$ is not differentiable at 0.
+\end{problem}
+\begin{sol}
+Let $f: \mathbb{R}^2 \to \mathbb{R}$ be given by $$f(x) = \begin{cases} 
+     \frac{x_1 x_2^3}{x_1^2 + x_2^4}, & \text{if } x \neq 0 \\
+      0, & \text{if } x = 0. 
+   \end{cases}
+$$ Let $v \in \mathbb{R}^2 \setminus (0, 0)$. Then, we have \begin{align*}
+    D_vf(0) &= \lim_{t \to 0} \frac{f(0 + tv) - f(0)}{t} \\ &= \lim_{t \to 0} \frac{\frac{tv_1(tv_2)^3- 0}{(tv_1)^2 + (tv_2)^4}}{t} \tag*{(Definition of $f$)} \\ &= \lim_{t \to 0} \frac{t^3v_1v_2}{t^2v_1^2 + t^4v_2^4} \\ &= \lim_{t \to 0} \frac{tv_1v_2}{v_1^2 + t^2v_2^4} \\ &= \frac{0}{v_1^2} \\ &= 0.
+\end{align*}
+Also note that $$
+    D_0f(0) = \lim_{t \to 0} \frac{f(0 + t \cdot 0) - f(0)}{t} = \lim_{t \to 0} \frac{0}{t} = 0.$$ Thus, $D_vf(0):\mathbb{R}^2 \to \mathbb{R}$ is defined by $D_vf(0) = 0$, which is linear since it is the zero map. Also, the Jacobian matrix of $f$ evaluated at $0$ is $(0, 0)$. To see if $f$ is differentiable at $0$, we have that \begin{align*}
+        \lim_{h \to 0} \frac{f(0 + h) - f(0) - (0, 0)\cdot h}{\lVert h \rVert} = \lim_{h \to 0} \frac{\frac{h_1h_2^3}{h_1^2 + h_2^4}}{\sqrt{h_1^2 + h_2^2}}.
+    \end{align*}
+    Consider $Z_1 = \{(t^2, t) : t \in \mathbb{R}^+\}$. Then, \begin{align*}
+        \lim_{h \to 0} \restr{\frac{h_1h_2^3}{(h_1^2 + h_2^4)\sqrt{h_1^2 + h_2^2}}}{Z_1} &= \lim_{t \to 0^+} \frac{t^2t^3}{(t^4 + t^4)\sqrt{t^4 + t^2}} \\ &= \lim_{t \to 0^+} \frac{t}{2\sqrt{t^4 + t^2}} \\ &= \lim_{t \to 0} \sqrt{\frac{t^2}{4t^4t^2}} \\ &= \sqrt{\frac{1}{4t^2 + 4}} \\ &= \frac{1}{2}.
+    \end{align*}
+    This means that the limit is $\frac{1}{2}$ or does not exist. However, since it is not equal to 0 either way, the derivative does not exist at 0.
+\end{sol}
+
+\begin{problem}{8} 
+Let $E = \{x \in \mathbb{R}^2 : x_1 > 0 \text{ and } 0 < x_2 < x_1^2\}$. Define $f : \mathbb{R}^2 \to \mathbb{R}$ by  $$f(x) = \begin{cases} 
+     1, & \text{if } x \in E \\
+      0, & \text{if } x \not\in E. 
+   \end{cases}
+$$ ($f$ is called the \textit{characteristic function} of the set $E$.) Prove that all directional derivatives of $f$ exist at 0, and equal 0, but that $f$ is not differentiable at 0.
+\end{problem}
+\begin{sol}
+Let $E = \{x \in \mathbb{R}^2 : x_1 > 0 \text{ and } 0 < x_2 < x_1^2\}$. Define $f : \mathbb{R}^2 \to \mathbb{R}$ by  $$f(x) = \begin{cases} 
+     1, & \text{if } x \in E \\
+      0, & \text{if } x \not\in E. 
+   \end{cases}
+$$ Define $A = \{x \in \mathbb{R}^2 : x_1 > 0 \text{ and } x_2 > 0 \text{ or } x_1 < 0 \text{ and } x_2 < 0\}$. Let $v \in A$ be arbitrary. 
+
+\vspace{1em}
+\noindent\underline{Case 1}: Suppose $v_1 > 0$ and $v_2 > 0$. 
+
+Since $(tv_1) < 0$ for all $t < 0$, which implies $tv \not\in E$, we have, $$\lim_{t \to 0^-} \frac{f(0 + tv) - f(0)}{t} = \lim_{t \to 0^-} \frac{f(tv)}{t} = \lim_{t \to 0^-} \frac{0}{t} = 0,$$ which implies $f(tv) = 0$. Let $\delta \in \mathbb{R}$ such that $0 < \delta < \frac{v_2}{v_1^2}$. By multiplication of $\delta v_1^2 > 0$, $0 < (\delta v_1)^2 < \delta v_2$. This means, $\delta v \not \in E$. Thus, for all $0 < t \leq \frac{v_2}{v_1^2}$, $$\lim_{t \to 0^+} \frac{f(0 + tv) - f(0)}{t} = \lim_{t \to 0^+} \frac{f(tv)}{t} = \lim_{t \to 0^+} \frac{0}{t} = 0,$$ which implies $f(tv) = 0$.
+
+\vspace{1em}
+\noindent\underline{Case 2}: Suppose $v_1 < 0$ and $v_2 < 0$. 
+
+Since $(tv_1) < 0$ for all $t > 0$, which implies $tv \not\in E$, we have, $$\lim_{t \to 0^+} \frac{f(0 + tv) - f(0)}{t} = \lim_{t \to 0^+} \frac{f(tv)}{t} = \lim_{t \to 0^+} \frac{0}{t} = 0,$$ which implies $f(tv) = 0$. Let $\phi \in \mathbb{R}$ such that $\frac{v_2}{v_1^2} < \phi < 0$. By multiplication of $\phi v_1^2 < 0$, $\phi v_2 > (\phi v_1)^2 > 0$, which implies $\phi v \not\in E$. Then, for all $\frac{v_2}{v_1^2} \leq t < 0$, we have $$\lim_{t \to 0^-} \frac{f(0 + tv) - f(0)}{t} = \lim_{t \to 0^-} \frac{f(tv)}{t} = \lim_{t \to 0^-} \frac{0}{t} = 0,$$ which implies $f(tv) = 0$.
+
+Therefore, since in all cases we have $\lim_{t \to 0^-} \frac{f(0 + tv) - f(0)}{t} = \lim_{t \to 0^+} \frac{f(0 + tv) - f(0)}{t}$, that implies $D_vf(0) = \lim_{t \to 0} \frac{f(0 + tv) - f(0)}{t} = 0$. 
+
+Now, let $u \not\in A$. Then, we have that $u_1 \geq 0$ and $u_2 \leq 0$ or $u_1 \leq 0$ and $u_2 \geq 0$. This implies that $u \not \in E$. Moreover, for all $t \in \mathbb{R}$, we have $tu \not\in E$ since we would still have the property mentioned. Thus, $f(tu) = 0$ for all $t \in \mathbb{R}$. This means that we have \begin{align*}
+    D_uf(0) &= \lim_{t \to 0} \frac{f(0 + tu) - f(0)}{t} \\ &= \lim_{t \to 0} \frac{f(tu)}{t} \\ &= \lim_{t \to 0} \frac{0}{t} \\ &= 0.
+\end{align*}
+Thus, for all $w \in \mathbb{R}^2$, $D_wf(0) = 0$. So, the Jacobian matrix of $f$ evaluated at $0$ is $(0, 0)$. Consider $Z_1 = \{(t, t^3) : 0 < t < 1\}$. Then for all $x \in Z_1$, $x$ is of the form $(k, k^3)$ and $x_1 = k > 0$ and $x_1^2 = k^2 > k^3 = x_2 > 0$. This implies $x \in E$. Hence, for all $x \in Z_1$, $f(x) = 1$. Thus, $$\lim_{h \to 0} \restr{\frac{f(0 + h) - f(0) - (0, 0)h}{\lVert h \rVert}}{Z_1} = \lim_{t \to 0^+} \frac{1}{\lVert (t, t^3) \rVert} = \infty.$$ Therefore, the derivative of $f$ at $0$ does not exist.
+\end{sol}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
