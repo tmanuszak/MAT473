@@ -1,0 +1,145 @@
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in, bottom=4.5cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ, scrextend}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Proof.}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Trey Manuszak}  %replace with your name
+\rhead{MAT 473: Intermediate Real Analysis II \\ Homework 3: 9, 10, 11, 12} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{blindtext}
+\title{MAT 473: Intermediate Real Analysis II}
+\date{February 6, 2020}
+\author{Trey Manuszak\\ Arizona State University}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\maketitle
+\newpage
+
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{9}
+Let $U \subseteq \mathbb{R}^n$ be open, let $f: U \to \mathbb{R}^n$, and let $a \in U$. Suppose that $f$ is differentiable at $a$, and that $f'(a)$ is a non-singular linear transformation. Prove that there is a number $r > 0$ such that for all $x \in U$, if $0 < \lVert x - a \rVert < r$ then $f(x) \neq f(a)$. (Hint: use the second version of differentiability.)
+\end{problem}
+\begin{sol}
+Let $U \subseteq \mathbb{R}^n$ be open. Let $f : U \to \mathbb{R}^n$. Let $a \in U$. Suppose $f$ is differentiable at $a$ and that $f'(a)$ is a nonsingular linear transformation. Then, there exists a function $\phi : B_r(0) \to \mathbb{R}^n$ for some $r > 0$ such that $\phi(0) = 0$, $\phi$ is continuous at 0, and $f(a+h) = f(a) + T(h) + \phi(h) \lVert h \rVert$, for $h \in B_r(0)$.  Suppose for contradiction that for all $\delta > 0$, there exists $h \in U$ such that $0 < \lVert h - a \rVert < \delta$ and $f(x) = f(a)$. Define $(h_n-a)_{n \in \mathbb{N}}$ where $h_n - a$ satisfies $0 < \lVert h_n - a \rVert < \min \{\frac{1}{n+1},r \}$ and $f(h_n) = f(a)$ for all $n \in \mathbb{N}$. Then, we have $f(a+h_n-a) = f(a) + f'(a)(h_n-a) + \phi(h_n-a) \lVert h_n - a \rVert$ from the properties of $\phi$. Simplifying, we get $f(h_n) = f(a) + f'(a)(h_n-a) + \phi(h_n-a) \lVert h_n - a \rVert$. Then, $f'(a)(h_n - a) = -\phi(h_n - a) \lVert h_n - a \rVert$ since $f(a) = f(h_n)$. Since we supposed $f'(a)$ was non-singular, then $f'(a)^{-1}$ exists. Thus, \begin{align*}
+    f'(a)^{-1}(f'(a)(h_n - a)) &= f'(a)^{-1}(-\phi(h_n - a) \lVert h_n - a \rVert) \\ h_n - a &= f'(a)^{-1}(-\phi(h_n - a) \lVert h_n - a \rVert) \tag*{(Since $f'(a)$ bijective)} \\ &= - \lVert h_n - a \rVert f'(a)^{-1}( \phi (h_n - a)) \tag*{(By linearity of $f'(a)^{-1}$)} \\ \lVert h_n - a \rVert &= \lVert - \lVert h_n - a \rVert f'(a)^{-1}( \phi (h_n - a)) \rVert \\ &= \lVert h_n - a \rVert \cdot \lVert f'(a)^{-1}(\phi(h_n - a))\rVert. \tag*{(Since $\lVert h_n - a \rVert \in \mathbb{R}$)} 
+\end{align*}
+By division, $1 = \lVert f'(a)^{-1}(\phi (h_n - a))\rVert$. Then, as $n \to \infty$, then $h_n - a \to 0$. Since $\phi$ is continuous at 0 and $\phi(0) = 0$, $\phi(h_n - a) \to 0$ as $n \to \infty$. Then, $f'(a)^{-1}$ is continuous at 0 and $f'(a)^{-1}(0) = 0$ since $f'(a)^{-1}$ is a linear function on a finite vector space. Thus, $\lVert f'(a)^{-1}(\phi (h_n - a)) \rVert \to 0$ as $n \to \infty$, contradiction. Therefore, there exists $\delta > 0$ such that for all $x \in U$, whenever $0 < \lVert x - a \rVert < \delta$, then $f(a) \neq f(a)$.
+\end{sol}
+
+
+
+
+\begin{problem}{10}
+Let $E \subseteq \mathbb{R}^n$ be an open set, and let $f : E \to \mathbb{R}$. Suppose that $\frac{\partial f}{\partial x_1}, \dots, \frac{\partial f}{\partial x_n}$ exist and are bounded in $E$. Prove that $f$ is continuous in $E$. (Hint: imitate the proof of differentiability when the partial derivatives are continuous.)
+\end{problem}
+\begin{sol}
+Let $E \subseteq \mathbb{R}^n$ be an open set, and let $f : E \to \mathbb{R}$. Let $\frac{\partial f}{\partial x_1}, \dots, \frac{\partial f}{\partial x_n}$ exist and be bounded in $E$. Let $a \in E$ be arbitrary but fixed. Since $E$ is open, there exists $r > 0$ such that $B_r(a) \subseteq E$ such that for all $h \in B_r(a)$, we have \begin{align*}
+    f(a+h) - f(a) &= \sum_{j = 1}^nf(a+h_1e_1 + \dots + h_je_j) - f(a + h_1e_1 + \dots + h_{j-1}e_{j-1}) \\ &= \sum_{j = 1}^nf(a_1 + h_1, \dots , a_j + h_j, a_{j+1}, \dots , a_n) - f(a_1 + h_1, \dots , a_{j-1} + h_{j-1} , a_j , \dots , a_n).
+\end{align*}
+Since $f$ is differentiable with respect to $x_j$ in $E$ for all $j \in \{1, \dots , n\}$, then $f$ is continuous with respect to $x_j$. By mean value theorem, we have that there exists $0 < \theta_j < 1$ such that for all $j \in \{1, \dots , n\}$, \begin{align*}
+    f(a_1 + h_1, \dots , a_j + h_j , a_{j + 1} , \dots , a_n) - f(a_1 + h_1, \dots , a_{j-1} + h_{j-1}, a_j , \dots , a_n) \\ = h_j\cdot D_jf(a_1 + h_1, \dots , a_j + \theta_jh_j , a_{j+1}, \dots , a_n).
+    \end{align*}
+    This implies $f(a+h) - f(a) = \sum_{j = 1}^nh_jD_jf(a_1 + h_1, \dots , a_j + \theta_j, a_{j+1}, \dots , a_n)$. By taking the norm and limit, we get \begin{align*}
+        \lim_{h \to 0} \lVert f(a+h) - f(a) \rVert &= \lim_{h \to 0} \lVert \sum_{j = 1}^nh_jD_jf(a_1 + h_1, \dots , a_j + \theta_j, a_{j+1}, \dots , a_n) \rVert \\ &\leq \lim_{h \to 0} \sum_{j = 1}^n \lVert h \rVert \cdot \lVert D_jf(a_1 + h_1, \dots , a_j + \theta_j, a_{j+1}, \dots , a_n) \rVert \tag*{(By Cauchy-Schwartz)} \\ &= 0. \tag*{(Since $D_jf$ is bounded and $\lim_{h \to 0}\lVert h \rVert = 0$)}
+    \end{align*}
+    So, $\lim_{h \to 0} \lVert f(a+h) - f(a) \rVert = 0$. Therefore, $f$ is continuous at $a$. Since $a \in E$ was arbitrary, then $f$ is continuous.
+\end{sol}
+
+
+
+
+\begin{problem}{11}
+Let $f_1, f_2 : \mathbb{R}^2 \to \mathbb{R}$ be continuously differentiable functions, and suppose that $D_if_j(x) = D_jf_i(x)$ for all $i$ and $j$, and for all $x \in \mathbb{R}^2$. Prove that there exists a function $F : \mathbb{R}^2 \to \mathbb{R}$ such that $f_i = D_iF$ for all $i$. (Hint: fix a point $a \in \mathbb{R}^2$. Define $F$ by $$F(x) = \int_{a_1}^{x_1}f_1(t,a_2)dt + \int_{a_2}^{x_2}f_2(x_1,t)dt.$$ You may use the theorem on passing a derivative through an integral: if $f : \mathbb{R}^2 \to \mathbb{R}$, and if $f$ and $D_2f$ are continuous, then $\frac{d}{dt} \int_a^b f(s,t)ds = \int_a^bD_2f(s,t)ds$.)
+
+(This problem is still true for $f : \mathbb{R}^n \to \mathbb{R}$, and for extra credit (double) you can write out the statement in the general case (in addition to, or instead of) the case $n = 2$. Some more hints for the general case: it makes for easier bookkeeping to separate the calculation into terms of three types. When calculating $\frac{\partial F}{\partial x_i}$, there are $n$ terms to differentiate. Consider the three possibilities: $\frac{\partial}{\partial x_i}$ of the $j$th term, where $j < i$, where $j = i$, where $j > i$. In the first case, you should get to 0, in the second, you can use the usual fundamental theorem of calculus, and in the third, you must pass the derivative under the integral, and then use the hypothesis of the problem. If you are really stuck, work the problem in the case $n = 3$. Then you should be able to see what is going on.)
+\end{problem}
+\begin{sol}
+Let $f_1, f_2 : \mathbb{R}^2 \to \mathbb{R}$ be continuously differentiable functions, and suppose that $D_if_j(x) = D_jf_i(x)$ for all $i$ and $j$, and for all $x \in \mathbb{R}^2$. Fix $a \in \mathbb{R}^2$. Define $F:\mathbb{R}^2 \to \mathbb{R}$ by $$F(x) = \int_{a_1}^{x_1}f_1(t,a_2)dt + \int_{a_2}^{x_2}f_2(x_1,t)dt.$$ Then, \begin{align*}
+    D_1F(x) &= \frac{\partial}{\partial x_1}\left( \int_{a_1}^{x_1}f_1(t,a_2)dt + \int_{a_2}^{x_2}f_2(x_1,t)dt \right) \\ &= \frac{\partial}{\partial x_1} \int_{a_1}^{x_1}f_1(t,a_2)dt + \frac{\partial}{\partial x_1} \int_{a_2}^{x_2}f_2(x_1,t)dt \\ &= f_1(x_1,a_2) + \frac{\partial}{\partial x_1} \int_{a_2}^{x_2}f_2(x_1,t)dt \tag*{(By fundamental theorem of calculus)} \\ &= f_1(x_1,a_2) + \int_{a_2}^{x_2}D_1f_2(x_1,t)dt \tag*{(By theorem from the hint)} \\ &= f_1(x_1,a_2) + \int_{a_2}^{x_2}D_2f_1(x_1,t)dt \tag*{(From assumption)} \\ &= f_1(x_1,a_2) + f_1(x_1,x_2) - f_1(x_1,a_2) \tag*{(By fundamental theorem of calculus)} \\ &= f_1(x).
+\end{align*}
+Also, we have \begin{align*}
+    D_2F(x) &= \frac{\partial}{\partial x_2}\left( \int_{a_1}^{x_1}f_1(t,a_2)dt \right) + \frac{\partial}{\partial x_2} \left( \int_{a_2}^{x_2}f_2(x_1,t)dt  \right) \\ &= 0 + \frac{\partial}{\partial x_2} \left( \int_{a_2}^{x_2}f_2(x_1,t)dt  \right) \tag*{(Since $f_1(t,a_2)$ is constant with respect to $x_2$)} \\ &= f_2(x_1,x_2). \tag*{(By fundamental theorem of calculus)}
+\end{align*}
+Therefore, $f_1 = D_1F$ and $f_2 = D_2F$.
+\end{sol}
+
+
+
+
+\begin{problem}{12}
+Let $f_1,f_2 : \mathbb{R}^2 \setminus \{0\} \to \mathbb{R}$ be given by $$f_1(x) = \frac{-x_2}{x_1^2 + x_2^2}, \hspace{2em} f_2(x) = \frac{x_1}{x_1^2 + x_2^2}.$$
+\begin{itemize}
+    \item[(a)] Prove that $D_1f_2 = D_2f_1$ on $\mathbb{R}^2 \setminus \{0\}.$ 
+    
+    \vspace{1em}
+    \begin{sol}
+    Let $x \in \mathbb{R}^2 \setminus \{0\}$. Then, \begin{align*}
+        D_1f_2(x) &= \frac{(x_1^2+x_2^2)\cdot 1 - x_1(2x_1)}{(x_1^2 + x_2^2)^2} \tag*{(By quotient rule)} \\ &= \frac{-x_1^2 + x_2^2}{(x_1^2 + x_2^2)^2}
+    \end{align*}
+    Also, \begin{align*}
+        D_2f_1(x) &= \frac{(x_1^2 + x_2^2)(-1) - (-x_2)(2x_2)}{(x_1^2 + x_2^2)^2} \tag*{(By quotient rule)} \\ &= \frac{-x_1^2 + x_2^2}{(x_1^2 + x_2^2)^2}.
+    \end{align*}
+    Thus, $D_1f_2(x) = \frac{-x_1^2 + x_2^2}{(x_1^2 + x_2^2)^2} = D_2f_1(x)$. Since $x \in \mathbb{R}^2 \setminus \{0\}$ was arbitrary, then $D_1f_2 = D_2f_1$.
+    \end{sol}
+    \item[(b)] Prove that there does not exist a continuously differentiable function $F : \mathbb{R}^2 \setminus \{0\} \to \mathbb{R}$ such that $f_i = D_iF$ for $i = 1,2$. (Hint: Let $g : [0,2\pi ] \to \mathbb{R}^2 \setminus \{0\}$ be given by $g(t) = (\cos t, \sin t)$. Apply the mean value theorem to $F(g(t))$.)
+    
+    \vspace{1em}
+    \begin{sol}
+    Suppose, for a contradiction, that there exists a continuously differentiable function $F: \mathbb{R}^2 \setminus \{0\} \to \mathbb{R}$ such that $f_i = D_iF$ for $i = 1,2$. Let $g : [0,2\pi] \to \mathbb{R}^2 \setminus \{0\}$ be defined by $g(t) = (\cos t, \sin t)$. Then, $F \circ g$ is differentiable on $(0,2\pi)$ since the composition of differentiable functions is differentiable. Also, $F \circ g$ is continuous on $[0,2\pi]$ since the composition of continuous functions is continuous.
+    
+    Let $x \in (0, 2\pi)$. Then, \begin{align*}
+        D(F\circ g)(x) &= \sum_{k = 1}^2D_kF(g(x)) \cdot D_{g_k}(x) \tag*{(By chain rule)} \\ &= f_1(g(x)) \cdot D_{g_1}(x) + f_2(g(x)) \cdot D_{g_2}(x) \tag*{(From assumption)} \\ &= \frac{- \sin (x)}{\sin^2(x) + \cos^2(x)}\cdot(-\sin(x)) + \frac{\cos(x)}{\sin^2(x) + \cos^2(x)} \cdot \cos(x) \tag*{(By definition of $f_1$ and $f_2$)} \\ &= \frac{\sin^2(x)}{\sin^2(x) + \cos^2(x)} + \frac{\cos^2(x)}{\sin^2(x) + \cos^2(x)} \\ &= 1.
+    \end{align*}
+    Note, $F \circ g (0) = F(g(0)) = F(\cos(0),\sin(0)) = F(1,0) = F(\cos(2\pi),\sin(2\pi)) = F(g(2\pi)) = F \circ g (2\pi)$. By Rolle's theorem, there exists $c \in (0,2\pi)$ such that $D(F \circ g)(c) = 0$. However, $D(F \circ g)(x) = 1$ for all $x \in (0, 2\pi)$, contradiction. Therefore, there does not exist a function $F : \mathbb{R}^2 \setminus \{0\} \to \mathbb{R}$ such that $f_i = D_if$ for $i = 1,2$.
+    \end{sol}
+\end{itemize}
+\end{problem}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
