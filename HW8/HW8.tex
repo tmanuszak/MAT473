@@ -1,0 +1,129 @@
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in, bottom=4.5cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ, scrextend}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{tikz}  
+\usepackage{tikz-3dplot} 
+\usepackage{amssymb}
+\usepackage{xifthen}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Proof.}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Trey Manuszak}  %replace with your name
+\rhead{MAT 473: Intermediate Real Analysis II \\ Homework 8: 29, 30, 31, 32} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{blindtext}
+\title{MAT 473: Intermediate Real Analysis II}
+\date{March 27, 2020}
+\author{Trey Manuszak\\ Arizona State University}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\maketitle
+\newpage
+
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{29}
+Let $f : [a,b] \to \mathbb{R}$ and let $c \in [a,b].$ Recall that the \textit{oscillation of f at c} is the quantity $$\text{osc}(f,c) = \lim_{r \to 0^+} \left( \sup_{x,y \in B_r(c) \cap [a,b]} \left| f(x) - f(y) \right| \right).$$ 
+Prove that $f$ is continuous at $c$ if and only if $\text{osc}(f,c) = 0$.
+\end{problem}
+\begin{sol}
+Let $f : [a,b] \to \mathbb{R}$ and $c \in (a,b)$. 
+
+$(\Longrightarrow):$ Let $f$ be continuous at $c$. Let $\epsilon > 0$ be arbitrary but fixed. Then, there exists $r > 0$ such that for $x,y \in B_r(c)$, we have $\left| f(x) - f(c) \right| < \frac{\epsilon}{2}$ and $\left| f(y) - f(c) \right| < \frac{\epsilon}{2}$, which from the triangle inequality implies $$\left| f(x) - f(y) \right| \leq \left| f(x) - f(c) \right| + \left| f(y) - f(c) \right| < \epsilon.$$ Thus, $$\lim_{r \to 0^+} \left( \sup_{x,y \in B_h(c) \cap [a,b]} \left| f(x) - f(y) \right| \right) \leq \epsilon \hspace{1em} \text{if} \hspace{1em} h < r.$$ This implies $\text{osc}(f,c) = 0$.
+
+$(\Longleftarrow):$ Let $\text{osc}(f,c) = 0$ and $\epsilon > 0$ be arbitrary but fixed. Then, $$\lim_{r \to 0^+} \left( \sup_{x,y \in B_r(c) \cap [a,b]} \left| f(x) - f(y) \right| \right) < \epsilon$$ for some $r > 0$.
+So, $\left| f(x) - f(y) \right| < \epsilon$ if $x,y \in B_r(c)$. If $c = y$, then $\left| f(x) - f(c) \right| < \epsilon$. Therefore, $f$ is continuous at $c$.
+
+This argument is similar if $c = a$ or $c = d$.
+\end{sol}
+
+
+\begin{problem}{30}
+Let $f$ be as in the previous problem, and let $L > 0$. Prove that the set $\{z \in [a,b] : \text{osc}(f,z) \geq L \}$ is a closed set.
+\end{problem}
+\begin{sol}
+Let $f : [a,b] \to \mathbb{R}$ and $L > 0$. Define $A = \{z \in [a,b] : \text{osc}(f,z) \geq L\}$. Notice that $A^c = (-\infty,a) \cup \{z \in [a,b] : \text{osc}(f,z) < L\} \cup (b,\infty)$. Then we have the following cases.
+
+\begin{itemize}[leftmargin=.6in]
+    \item[\underline{Case 1:}] Let $c \in (-\infty,a) \cup (b,\infty)$. Then, since $(-\infty,a) \cup (b,\infty)$ is open, then there exists $r_0 > 0$ such that $B_{r_0}(c) \subseteq A^c$.
+    
+    \item[\underline{Case 2:}] Let $c \in \{z \in [a,b] : \text{osc}(f,z) < L\}$. Then, there must exist $\delta > 0$ such that for all $r \in (0,\delta)$, then $$\sup_{x,y \in B_r(c) \cap [a,b]} \left| f(x) - f(y) \right| < L.$$ 
+    Let $d \in [a,b]$. Fix $r \in (0,\delta)$. Let $d \in B_{\frac{r}{2}}(c)$. Clearly, if $d \not\in [a,b]$, then we have $d \in (-\infty, a) \cup (b,\infty) \subseteq A^c$. Suppose $d \in [a,b]$. Let $x \in B_{\frac{r}{2}}(d) \cap [a,b]$. This gives us \begin{align*}
+        \left| x - c \right| &\leq \left| x - d \right| + \left| c - d \right| \tag*{(By triangle inequality)} \\
+        &< \frac{r}{2} + \frac{r}{2} \\ 
+        &= r.
+    \end{align*}
+    So, $x \in B_r(c)$, which implies $B_{\frac{r}{2}}(d) \subseteq B_r(c)$. Thus, \begin{align} \sup_{x,y \in B_{\frac{r}{2}}(d) \cap [a,d]} \left| f(x) - f(y) \right| \leq \sup_{x,y \in B_r(c) \cap [a,b]} \left| f(x) - f(y) \right|. \end{align} We now have, \begin{align*}
+        \text{osc}(f,d)
+        &= \lim_{r \to \infty} \left( \sup_{x,y \in B_{\frac{r}{2}}(d) \cap [a,d]} \left| f(x) - f(y) \right| \right) \tag*{(Definition of oscillation of $f$ at $d$)} \\
+        &\leq \lim_{r \to \infty} \left( \sup_{x,y \in B_r(c) \cap [a,b]} \left| f(x) - f(y) \right| \right) \tag*{(By (1))} \\ 
+        &= \text{osc}(f,c) \tag*{(Definition of oscillation of $f$ at $c$)} \\
+        &< L.
+    \end{align*}
+    Thus, $d \in A^c$, which implies $B_{\frac{r}{2}}(c) \subseteq A^c$. 
+\end{itemize}
+ Therefore, in both cases, we have that $A^c$ is open, which implies that $A$ is closed.
+\end{sol}
+
+
+\begin{problem}{31}
+Let $[c,d]$ be a closed bounded interval, and let $(a_1,b_1),\dots,(a_n,b_n)$ be open intervals such that $[c,d] \subseteq \cup_{i = 1}^n(a_i,b_i)$. Prove that $d-c < \sum_{i = 1}^n(b_i - a_i)$. (Hints: choose $i_1$ so that $c \in (a_{i_1},b_{i_1})$. If $b_{i_1} \leq d$ choose $i_2$ so that $b_{i_1} \in (a_{i_2},b_{i_2})$. Explain why in the continuation of this process there must be $k \leq n$ such that $d \in (a_{i_k},b_{i_k})$.)
+\end{problem}
+\begin{sol}
+Let $C = [c,d]$ be a closed bounded interval and $A_1 = (a_1,b_1), \dots, A_n = (a_n, b_n)$ be open intervals such that $[c,d] \subseteq \cup_{i = 1}^nA_i$. Let $\epsilon > 0$ be arbitrary but fixed. Choose $j$ such that $Q_j = (q_j,p_j) \supseteq A_j$ with $p_j - q_j \leq (1 + \epsilon) \left| b_j - a_j \right|$. Since $\cup_{j = 1}^\infty Q_j$ is an open cover of the compact set $[c,d]$, there exists a finite subcover $[c,d] \subseteq \cup_{i = 1}^N Q_j$. By taking the closure of each $Q_j$, we have $d - c \leq \sum_{j = 1}^N (p_j - q_j)$. As a result, we have $$d - c \leq (1 + \epsilon)\sum_{j = 1}^N(b_j - a_j).$$ Since $\epsilon > 0$, then we have the strict inequality $d - c < \sum_{j = 1}^N(b_j - a_j)$.
+\end{sol}
+
+
+\begin{problem}{32}
+For this exercise you must recall the definition and properties of \textit{Lebesgue outer measure} from the notes. Let $A,B \subseteq \mathbb{R}$, and suppose that $m^*(A) = 0$. Prove that $m^*(A \cup B) = m^*(A) + m^*(B)$.
+\end{problem}
+\begin{sol}
+Let $A,B \subseteq \mathbb{R}$ and $m^*(A) = 0$. By Theorem 15.3 (2), we have $m^*(A \cup B) \leq m^*(A) + m^*(B)$. Also, \begin{align*}
+    m^*(A) + m^*(B) &= 0 + m^*(B) \tag*{(By monotonicity of the outer measure)} \\ &= m^*(B) \\ &\leq m^*(A \cup B). 
+\end{align*}
+So, since $m^*(A) + m^*(B) \leq m^*(A \cup B)$ and $m^*(A \cup B) \leq m^*(A) + m^*(B)$, then we must have $m^*(A \cup B) = m^*(A) + m^*(B)$.
+\end{sol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
