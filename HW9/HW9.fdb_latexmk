@@ -1,14 +1,7 @@
 # Fdb version 3
-["bibtex HW9"] 1586064746 "HW9.aux" "HW9.bbl" "HW9" 1586064749
-  "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/bibtex/bib/aguplus/sample.bib" 777769200 1431 3d6a889f0e0d40988daf1dc04efafeac ""
-  "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/bibtex/bst/bibtex/unsrt.bst" 1291864736 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "HW9.aux" 1586064749 130 0df9dc5b01a136102980f58f8aa4aafb "pdflatex"
-  (generated)
-  "HW9.blg"
-  "HW9.bbl"
-["pdflatex"] 1586064747 "c:/Users/trey1/Documents/MAT473/HW9/HW9.tex" "c:\Users\trey1\Documents\MAT473\HW9/HW9.pdf" "HW9" 1586064749
+["pdflatex"] 1586194725 "c:/Users/trey1/Documents/MAT473/HW9/HW9.tex" "c:\Users\trey1\Documents\MAT473\HW9/HW9.pdf" "HW9" 1586194728
   "C:/Users/trey1/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt" 1586064741 10017265 1c53c179c9d56a9a7ce39a7f2b196f6d ""
-  "C:/Users/trey1/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map" 1586060419 77580 0902bf85dfadfdef13ad4bb0cb98be38 ""
+  "C:/Users/trey1/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map" 1586121038 77580 0902bf85dfadfdef13ad4bb0cb98be38 ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -159,14 +152,13 @@
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/tex/latex/xcolor/xcolor.sty" 1463135581 57049 34128738f682d033422ca125f82e5d62 ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/tex/latex/xifthen/xifthen.sty" 1448274436 5689 1bfa68243e89a54479e7d0580773c57e ""
-  "HW9.aux" 1586064749 130 0df9dc5b01a136102980f58f8aa4aafb "pdflatex"
-  "HW9.bbl" 1586064746 52 0eba253fc001332e731e8aba3f23127b "bibtex HW9"
-  "HW9.tex" 1586064561 8819 bf6e26bde49c648945444c8e5a54019d ""
-  "c:/Users/trey1/Documents/MAT473/HW9/HW9.tex" 1586064561 8819 bf6e26bde49c648945444c8e5a54019d ""
-  "c:\Users\trey1\Documents\MAT473\HW9/HW9.aux" 1586064749 130 0df9dc5b01a136102980f58f8aa4aafb ""
+  "HW9.aux" 1586194727 44 dc97af5c6f573c3ca8db466309c44817 "pdflatex"
+  "HW9.tex" 1586194722 8606 a3e97e2bcb4d26352597f406b2e59428 ""
+  "c:/Users/trey1/Documents/MAT473/HW9/HW9.tex" 1586194722 8606 a3e97e2bcb4d26352597f406b2e59428 ""
+  "c:\Users\trey1\Documents\MAT473\HW9/HW9.aux" 1586194727 44 dc97af5c6f573c3ca8db466309c44817 ""
   (generated)
   "HW9.aux"
-  "HW9.pdf"
-  "HW9.log"
   "c:\Users\trey1\Documents\MAT473\HW9/HW9.pdf"
   "c:\Users\trey1\Documents\MAT473\HW9/HW9.log"
+  "HW9.pdf"
+  "HW9.log"
