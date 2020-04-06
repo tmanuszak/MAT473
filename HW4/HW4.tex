@@ -1,0 +1,168 @@
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in, bottom=4.5cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ, scrextend}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Proof.}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Trey Manuszak}  %replace with your name
+\rhead{MAT 473: Intermediate Real Analysis II \\ Homework 4: 13, 14, 15, 16} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{blindtext}
+\title{MAT 473: Intermediate Real Analysis II}
+\date{February 13, 2020}
+\author{Trey Manuszak\\ Arizona State University}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\maketitle
+\newpage
+
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{13}
+Define the function $r : \mathbb{R}^p \to \mathbb{R}$ by $r(x) = \sqrt{x_1^2 + \dots + x_p^2}$.
+
+\begin{itemize}
+    \item[(a)] Prove that $\frac{\partial r}{\partial x_i} = \frac{x_i}{r}$.
+    
+    \begin{sol}
+    Define the function $r : \mathbb{R}^p \to \mathbb{R}$ by $r(x) = \sqrt{x_1^2 + \dots + x_p^2}$. Let $U \subseteq \mathbb{R}^p$ be open and $r$ be differentiable at some $x \in U$ and fix $i \in \{1, \dots, p\}$. Then,
+    \begin{align*}
+        \frac{\partial r}{\partial x_i}(x) &= \frac{\partial}{\partial x_i} \sqrt{x_1^2 + \dots + x_p^2} \\ &= \frac{1}{2}\sqrt{x_1^2 + \dots + x_p^2}^{-1}(2x_i) \tag*{(By chain rule)} \\ &= \frac{x_i}{\sqrt{x_1^2 + \dots + x_p^2}} \\ &= \frac{x_i}{r(x)}. 
+    \end{align*}
+    \end{sol}
+    
+    \item[(b)] Prove that $\sum_{i = 1}^p \frac{\partial^2 r}{\partial x_i^2} = \frac{p-1}{r}$.
+    
+    \begin{sol}
+    Define the function $r : \mathbb{R}^p \to \mathbb{R}$ by $r(x) = \sqrt{x_1^2 + \dots + x_p^2}$. Let $U \subseteq \mathbb{R}^p$ be open and $r$ be twice differentiable at some $x \in U$ and fix $i \in \{1, \dots, p\}$. Then, \begin{align*}
+        \frac{\partial^2 r}{\partial x_i^2}(x) &= \frac{\partial}{\partial x_i}\frac{x_i}{r(x)} \\ &= \frac{r(x) - (x_i)\frac{x_i}{r(x)}}{r(x)^2} \tag*{(By quotient rule)} \\ &= \frac{r(x)^2-x_i^2}{r(x)^3}.
+    \end{align*}
+    Thus, \begin{align*}
+        \sum_{i = 1}^p \frac{\partial^2 r}{\partial x_i^2}(x) &= \sum_{i = 1}^p \frac{r(x)^2 - x_i^2}{r(x)^3} \\ &= \left( \frac{x_1^2 + \dots + x_p^2 - x_1^2}{r(x)^3} \right) + \left( \frac{x_1^2 + \dots + x_p^2 - x_2^2}{r(x)^3} \right) + \dots + \left( \frac{x_1^2 + \dots + x_p^2 - x_p^2}{r(x)^3} \right) \\ &= \frac{(p-1)x_1^2 + \dots + (p-1)x_p^2}{r(x)^3} \\ &= \frac{(p-1)r(x)^2}{r(x)^3} \\ &= \frac{p-1}{r(x)}.
+    \end{align*}
+    \end{sol}
+    
+    \item[(c)] Prove that $\sum_{i = 1}^p \frac{\partial^2}{\partial x_i^2}\frac{1}{r^{p-2}} = 0$.
+    
+    \begin{sol}
+    Let $\frac{1}{r^{p-2}} : \mathbb{R}^p \setminus \{0\} \to \mathbb{R}$ be given by $\left(\frac{1}{r^{p-2}}\right)(x) = r(x)^{-p+2}$. Fix $i \in \{1, \dots p\}$ and $x \in \mathbb{R}^p \setminus \{0\}$. Then, \begin{align*}
+       \left(\frac{\partial}{\partial x_i}\frac{1}{r^{p-2}}\right)(x) &= (-p+2)\cdot r(x)^{-p+1}\cdot \frac{\partial r}{\partial x_i}(x) \tag*{(By chain rule)} \\ &= \frac{(-p+2)x_i}{r(x)^p}.
+    \end{align*}
+    Then, \begin{align*}
+       \left(\frac{\partial^2}{\partial x_i^2}\frac{1}{r^{p-2}}\right)(x) &= \frac{r(x)^p(-p+2) - (-p+2) \cdot x_i(p \cdot r(x)^{p-1}\cdot \frac{\partial r}{\partial x_i}(x))}{r(x)^{2p}} \tag*{(By quotient rule)} \\ &= (-p+2) \left( \frac{r(x)^p - x_i^2pr(x)^{p-2}}{r(x)^{2p}} \right) \\ &= \frac{(-p+2)(r(x)^{p-2})}{r(x)^{2p}}(r(x)^2-x_i^2p).
+    \end{align*}
+    Then, we have \begin{align*}
+        \sum_{i = 1}^p\left(\frac{\partial^2}{\partial x_i^2}\frac{1}{r^{p-2}}\right)(x) &= \sum_{i = 1}^p\frac{(-p+2)(r(x)^{p-2})}{r(x)^{2p}}(r(x)^2-x_i^2p) \\ &= \frac{(-p+2)(r(x)^{p-2})}{r(x)^{2p}}\sum_{i = 1}^p (r(x)^2 - x_i^2p) \tag*{(Summation property)} \\ &= \frac{(-p+2)(r(x)^{p-2})}{r(x)^{2p}} (r(x)^2 - x_1^2p + r(x)^2 - x_2^2p + \dots + r(x)^2 - x_p^2p) \\ &= \frac{(-p+2)(r(x)^{p-2})}{r(x)^{2p}}(r(x)^2p - p(x_1^2 + \dots + x_p^2)) \\ &= \frac{(-p+2)(r(x)^{p-2})}{r(x)^{2p}}(r(x)^2p - pr(x)^2) \\ &= \frac{(-p+2)(r(x)^{p-2})}{r(x)^{2p}} \cdot 0 \\ &= 0
+    \end{align*}
+    Therefore, $\sum_{i = 1}^p \frac{\partial^2}{\partial x_i^2}\frac{1}{r^{p-2}} = 0$.
+    \end{sol}
+\end{itemize}
+\end{problem}
+
+
+
+\begin{problem}{14}
+Let $U \subseteq \mathbb{R}^n$ be an open set, and let $f : U \to \mathbb{R}$ be a differentiable function. Suppose that $f'(x) = 0$ for all $x \in U$.
+
+\begin{itemize}
+    \item[(a)] Prove that for each $a \in U$ there exists $r > 0$ such that $f$ is constant in $B_r(a)$. (Here $B_r(a) = \{x \in \mathbb{R}^n : \lVert x - a \rVert < r \}$ is the open ball in $\mathbb{R}^n$ with a center $a$ and radius $r$.)
+    
+    \begin{sol}
+    Let $U \subseteq \mathbb{R}^n$ be an open set, and let $f : U \to \mathbb{R}$ be a differentiable function. Suppose that $f'(x) = 0$ for all $x \in U$. Since $f$ is continuous on an open set, then there exists $r > 0$ arbitrary but fixed such that $B_r(x) \subset U$ for all $x \in U$. Let $y \in B_r(x)$ be arbitrary. Then, $[x,y] \subset U$. Since $f$ is differentiable, then by the mean value theorem, there exists $c \in [x,y]$ such that $\lVert f(y) - f(x) \rVert \leq \lVert f'(c)(y-x) \rVert$. Since $f'(x) = 0$ for all $x \in U$, then we have $\lVert f(y) - f(x) \rVert \leq \lVert 0 \cdot (y - x) \rVert$. Hence, $\lVert f(y) - f(x) \rVert = 0 \Longrightarrow f(y) - f(x) = 0$. Thus, $f(x) = f(y)$. Therefore, since $y \in B_r(x)$ was arbitrary, $f$ is constant in $B_r(x)$.
+    \end{sol}
+    
+    \item[(b)] Suppose that $U$ is connected. Prove that $f$ is constant in $U$.
+    
+    \begin{sol}
+     Let $U \subseteq \mathbb{R}^n$ be a connected open set, and let $f : U \to \mathbb{R}$ be a differentiable function. Suppose that $f'(x) = 0$ for all $x \in U$. Suppose $f$ is not constant for contradiction. Let $y \in f(U)$. Let $S = f^{-1}(\{y\})$ and $T = f^{-1}(f(U) \setminus \{y\})$. We will show the four following properties of $S$ and $T$.
+     
+     \begin{itemize}
+         \item[(i)] $S \cup T = U$:
+         
+         Note, $\{y\} \cup f(U) \setminus \{y\} = f(U)$ and $f^{-1}(f(U)) = U$. Thus, $f^{-1}(\{y\} \cup f(U) \setminus \{y\}) = U$. Since $\{y\}$ and $f(U) \setminus \{y\}$ are disjoint, then $f^{-1}(\{y\}) \cup f^{-1}(f(U) \setminus \{y\}) = U$, which implies $S \cup T = U$.
+         
+         \item[(ii)] $S \cap T = \emptyset$:
+         
+         Suppose $S \cap T \neq \emptyset$. Then, there exists $x \in U$ such that $f(x) = y$ and $f(x) = z$ for some $z \in f(U) \setminus \{y\}$. Then, $f$ is not a function. Therefore, $S \cap T = \emptyset$.
+         
+         \item[(iii)] $S \neq \emptyset$ and $T \neq \emptyset$:
+         
+         Note, $y \in f(U)$. That implies there exists some $z_1 \in U$ such that $z_1 \mapsto f(U) \setminus \{y\}$. Thus, $S \neq \emptyset$. Now, there must exist some $z_2 \in U$ such that $z_2 \mapsto f(U) \setminus \{y\}$. Therefore, $T \neq \emptyset$. 
+         
+         \item[(iv)] $S$ and $T$ open:
+         
+         Let $x \in S$ be arbitrary. That is, $f(x) = y$. Since $S \subset U$, then from part (a), there exists some $r > 0$ such that $f$ is constant in $B_r(x)$. So, $f(B_r(x)) = \{y\}$, which implies $B_r(x) \subset f^{-1}(\{y\})$. Therefore, for all $x \in S$, $B_r(x) \subset S$, which implies $S$ is open. By a similar argument, $T$ is open.
+     \end{itemize}
+    Therefore, there exist $S$ and $T$ nonempty open sets that are disjoint and whose union is $U$. Thus, $U$ is not disconnected, contradiction. Therefore, $f$ is constant.
+    \end{sol}
+\end{itemize}
+\end{problem}
+
+
+
+\begin{problem}{15}
+Recall that $GL := \{T \in M_n : T \text{ is invertible }\}$ is an open subset of $M_n$. Let $\text{inv} : GL_n \to GL_n \subseteq M_n$ be the inversion map: $\text{inv}(T) = T^{-1}$. Prove that $\text{inv}$ is continuous on $GL_n$. (Hint: let $A \in GL_n$ and use the following outline to show that $\text{inv}$ is continuous at $A$. Note that $T^{-1} - A^{-1} = T^{-1}(A - T)A^{-1}$. Apply the operator norm to both sides, then use the reverse triangle inequality to the left, and the operator norm inequality on the right. From the result you should be able to show that $\lVert T^{-1} \rVert$ is bounded in some ball centered at $A$. Then the righthand portion of the inequality work from before can be used to prove the continuity of $\text{inv}$ at $A$.) 
+\end{problem}
+\begin{sol}
+Let $\text{inv} : GL_n \to GL_n \subseteq M_n$ be the inversion map: $\text{inv}(T) = T^{-1}$. Let $A \in GL_n$. Define $\det: M_n \to \mathbb{R}$ to be $$\det(a_{ij}) = \sum_{\sigma \in S_n}\text{sgn}(\sigma)a_{1,\sigma(1)} \dots a_{n,\sigma(n)}$$ from Linear Algebra and Group Theory. Then, clearly $\det$ is continuous since it is a polynomial, which is always continuous. Now, for $A \in GL_n$, define $b_{ij}(A) = \det(A_{mk})_{m \neq j, k \neq i}$. Note, $b_{ij}$ is also continuous. Then, by Cramer's rule, $$(A^{-1})_{ij} = \frac{(-1)^{i+j}}{\det(A)}b_{ij}(A).$$ Therefore, since $\det(A)$ is a continuous polynomial and $b_{ij}(A)$ is a continuous polynomial, then $(A^{-1})_{ij}$ is continuous. Therefore, since each index of $A^{-1}$ is continuous, then $A^{-1}$ is continuous, which implies $\text{inv}$ is continuous since $A \in GL_n$ was arbitrary.
+\end{sol}
+
+
+\begin{problem}{16}
+Continuing from the previous problem, prove that $\text{inv}$ is differentiable on $GL_n$, and that $\text{inv}'(A)(H) = -A^{-1}HA^{-1}$. (Hint: investigate the difference $(A + H)^{-1}$ as a geometric series (for $\lVert H \rVert$ small enough).)
+\end{problem}
+\begin{sol}
+Let $\text{inv} : GL_n \to GL_n \subseteq M_n$ be the inversion map: $\text{inv}(T) = T^{-1}$. Let $A$ in $GL_n$ be arbitrary but fixed. Note, for $r = \frac{1}{\lVert A^{-1} \rVert}$ and $H \in B_r(o)$ \begin{align*}
+    \lVert -A^{-1}H \rVert &\leq \lVert A^{-1} \rVert \cdot \lVert H \rVert \tag*{(By triangle inequality)} \\ &< \frac{\lVert A^{-1} \rVert}{\lVert A^{-1} \rVert} \tag*{(Since $H$ in $B_r(0)$)} \\ &= 1
+\end{align*} 
+    Then, let $H \in M_n$ arbitrary.  \begin{align*}
+    \lim_{H \to 0}\frac{\lVert (A+H)^{-1} - A^{-1} - (A^{-1}HA^{-1} \rVert}{\lVert H \rVert} &= \lim_{H \to 0} \frac{\lVert(I + A^{-1}H)^{-1}A^{-1} - A^{-1} + A^{-1}HA^{-1} \rVert}{\lVert H \rVert} \tag*{(Multiplying the identity matrix in $(A + H)^{-1})$} \\ &= \lim_{H \to 0} \frac{\lVert (I - (-A^{-1}H))^{-1}A^{-1} - A^{-1} + A^{-1}HA^{-1} \rVert}{\lVert H \rVert} \\ &= \lim_{H \to 0} \frac{\lVert \sum_{j = 0}^\infty ((-A^{-1}H)^j \cdot A^{-1}) - A^{-1} + A^{-1}HA^{-1} \rVert}{\lVert H \rVert} \tag*{(By geometric series)} \\ &= \lim_{H \to 0} \frac{\lVert \sum_{j = 2}^\infty (((-A^{-1}H)^j)A^{-1} \rVert}{\lVert H \rVert} \tag*{(Simplification)} \\ &\leq \lim_{H \to 0} \frac{\sum_{j = 2}^\infty \lVert ((-A^{-1}H)^j) \rVert \cdot \lVert A^{-1} \rVert}{\lVert H \rVert} \tag*{(By triangle inequality)} \\ &\leq \lim_{H \to 0} \frac{\sum_{j = 2}^\infty \lVert (-A^{-1}H) \rVert^j \cdot \lVert A^{-1} \rVert}{\lVert H \rVert} \\ &= \lim_{H \to 0} \frac{\left( \frac{1}{1 - \lVert -A^{-1}H \rVert} - 1 - \lVert -A^{-1}H \rVert \right) \cdot \lVert A^{-1} \rVert}{\lVert H \rVert} \tag*{(From above, when $H$ is sufficiently small)} \\ &= \lim_{H \to 0} \frac{ \left( \frac{1-1 + \lVert -A^{-1}H \rVert - \lVert -A^{-1}H \rVert + \lVert-A^{-1}H \rVert^2}{1-\lVert - A^{-1}H \rVert} \right) \cdot \lVert A^{-1} \rVert}{\lVert H \rVert} \\ &\leq \lim_{H \to 0}\frac{ \left( \frac{\lVert -A^{-1}H \rVert^2}{1- \lVert -A^{-1}H \rVert} \right) \cdot \lVert A^{-1} \rVert}{\lVert H \rVert} \tag*{(Simplification)} \\ &= \lim_{H \to 0} \frac{\lVert -A^{-1}H \rVert^2 \cdot \lVert A^{-1} \rVert}{\lVert H \rVert ( 1 - \lVert A^{-1}H \rVert)} \\ &= \lim_{H \to 0} \frac{\lVert -A^{-1} \rVert^3 \cdot \lVert H \rVert}{1 - \lVert A^{-1}H \rVert} \tag*{(Simplification)} \\ &= \frac{0}{1} \\ &= 0.  
+\end{align*}
+Therefore, $0 \leq \lim_{H \to 0}\frac{\lVert (A+H)^{-1} - A^{-1} - (A^{-1}HA^{-1} \rVert}{\lVert H \rVert} \leq 0$, which implies $\lim_{H \to 0}\frac{\lVert (A+H)^{-1} - A^{-1} - (A^{-1}HA^{-1} \rVert}{\lVert H \rVert} = 0$ by squeeze theorem. Thus, $\text{inv}$ is differentiable at $A$. Since $A \in GL_n$ was arbitrary, then $\text{inv}$ is differentiable on $GL_n$ with $\text{inv}'(A)(H) = -A^{-1}HA^{-1}$.
+
+\end{sol}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
