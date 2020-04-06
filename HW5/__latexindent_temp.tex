@@ -1,0 +1,153 @@
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in, bottom=4.5cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ, scrextend}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Proof.}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Trey Manuszak}  %replace with your name
+\rhead{MAT 473: Intermediate Real Analysis II \\ Homework 5: 17, 18, 19, 20} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{blindtext}
+\title{MAT 473: Intermediate Real Analysis II}
+\date{February 20, 2020}
+\author{Trey Manuszak\\ Arizona State University}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\maketitle
+\newpage
+
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{17}
+Prove that the following function $f : \mathbb{R}^2 \to \mathbb{R}$ is (once) continuously differentiable on $\mathbb{R}^2$, that all second-order partial derivatives of $f$ exist at the origin, but that $D_1D_2f(0) \neq D_2D_1f(0):$ $$f(x) = \begin{cases} 
+      \frac{x_1^3x_2}{x_1^2 + x_2^2}, &\text{if } x \neq 0 \\ 0, & \text{if } x = 0. 
+   \end{cases}$$
+\end{problem}
+\begin{sol}
+Let $f : U \subseteq \mathbb{R}^2 \to \mathbb{R}$ be defined by $$f(x) = \begin{cases} 
+      \frac{x_1^3x_2}{x_1^2 + x_2^2}, &\text{if } x \neq 0 \\ 0, & \text{if } x = 0. 
+   \end{cases}$$ Then, \begin{align*}
+       D_1f(0,0) &= \lim_{h \to 0}\frac{1}{h}\frac{h^3 \cdot 0}{h^2+0^2} \\ &\stackrel{\text{L'H}}{=} \lim_{h \to 0} \frac{0}{3h^2} \\ &\stackrel{\text{L'H}}{=} \lim_{h \to 0} \frac{0}{6h}  \\ &\stackrel{\text{L'H}}{=} \lim_{h \to 0} \frac{0}{6} \\ &= 0.
+   \end{align*} 
+   Also, \begin{align*}
+       D_2f(0,0) &= \lim_{h \to 0}\frac{1}{h}\frac{0^3 \cdot h}{0^2 + h^2} \\ &\stackrel{\text{L'H}}{=} \lim_{h \to 0} \frac{0}{3h^2} \\ &\stackrel{\text{L'H}}{=} \lim_{h \to 0} \frac{0}{6h}  \\ &\stackrel{\text{L'H}}{=} \lim_{h \to 0} \frac{0}{6} \\ &= 0.
+   \end{align*} 
+   Thus, since all first-order partial derivatives of $f$ exist and are continuous, then $f(x)$ is at least $C^1$. Note, $$D_1f(x) = \begin{cases} 
+      \frac{(x_1^2 + x_2^2)(3x_1^2x_2) - (x_1^3x_2)(2x_1)}{(x_1^2 + x_2^2)^2}, &\text{if } x \neq 0 \\ 0, & \text{if } x = 0
+   \end{cases}$$ and $$D_2f(x) = \begin{cases} 
+      \frac{(x_1^2 + x_2^2)(x_1^3) - (x_1^3x_2)(2x_2)}{(x_1^2 + x_2^2)^2}, &\text{if } x \neq 0 \\ 0, & \text{if } x = 0.
+   \end{cases}$$
+   
+   Now, \begin{align*}
+       D_2D_1f(0,0) &= \lim_{h \to 0} \frac{1}{h}\frac{(h^2 + 0)(h^3) - (h^3 \cdot 0)(0)}{(h^2 + 0)^2} \\ &= \lim_{h \to 0} \frac{h^5}{h^5} \\ &= 1, \\ 
+       D_2D_2f(0,0) &= \lim_{h \to 0} \frac{1}{h}\frac{(0 + h^2)(0^3) - (0 \cdot h)(2h)}{(0 + h^2)^2} \\ &\lim_{h \to 0} \frac{0}{h^5} \\ &\stackrel{\text{L'H}}{=} \lim_{h \to 0}
+       \frac{0}{120} \\ &= 0, \\
+       D_1D_2f(0,0) &= \lim_{h \to 0} \frac{1}{h}\frac{(0 + h^2)(0 \cdot h) - (0 \cdot h)(0)}{(0 + h^2)^2} \\ &= \lim_{h \to 0} \frac{0}{h^5} \\ &\stackrel{\text{L'H}}{=} \frac{0}{120} \\ &= 0, \\
+       D_1D_1f(0,0) &= \lim_{h \to 0} \frac{1}{h}\frac{(h^2 + 0)(3h^2 \cdot 0) - (h^3 \cdot 0)(2h)}{(h^2 + 0)^2} \\ &= \lim_{h \to 0} \frac{0}{h^5} \\ &\stackrel{\text{L'H}}{=} \frac{0}{120} \\ &= 0.
+   \end{align*}
+   Therefore, all second-order partial derivatives of $f$ exist at the origin. But, $D_1D_2f(0,0) = 1 \neq 0 = D_2D_1f(0,0)$, which implies $f$ is not $C^2$. 
+   
+\end{sol}
+
+
+\begin{problem}{18} \text{ } \begin{itemize}
+    \item[(a)] Let $(X,d)$ be a metric space, let $T : X \to M_n$ be a continuous function, and let $x_0 \in X$. Suppose that $T(x_0)$ has a positive eigenvalue and a negative eigenvalue. Prove that there are unit vectors $v_+$ and $v_- \in \mathbb{R}^n$ such that $$\langle T(x)v_+,v_+ \rangle > 0, \hspace{2em} \langle T(x)v_-,v_- \rangle < 0$$ for all $x$ in a neighborhood of $x_0$.
+    
+    \begin{sol}
+    Let $(X,d)$ be a metric space, let $T : X \to M_n$ be a continuous function, and let $x_0 \in X$. Suppose that $T(x_0)$ has a positive eigenvalue and a negative eigenvalue. Then there exists $u,v \in \mathbb{R}^n$, $\lambda_+,\lambda_- \in \mathbb{R}$ such that $\lambda_+ > 0$ and $\lambda_- < 0$ such that $T(x_0)u = \lambda_+u$ and $T(x_0)v = \lambda_-v$ Let $u_= = \frac{u}{\lVert u \rVert}$ and $v_- = \frac{v_2}{\lVert v \rVert}$, which are unit vectors. Then, one can show that \begin{align*}
+        \langle T(x_0)u_+,u_+\rangle &= \langle \frac{T(x_0)u}{\lVert u \rVert}, \frac{u}{\lVert u \rVert}\rangle \\ &= \frac{\langle \lambda_+u,u\rangle}{\lVert u \rVert^2} \\ &= \frac{\lambda_+}{\lVert u \rVert^2} \cdot \langle u, u \rangle \\ &> 0.
+    \end{align*}
+    Similarly, $$\langle T(x_0)v,v\rangle < 0.$$ Now, there exists $r_+,r_- \in \mathbb{R}$ such that for all $x_+ \in B_{r_+}(x_0)$ and for all $x_- \in B_{r_-}(x_0)$, then $$\lVert T(x_+) - T(x_0) \rVert < \frac{\lambda_+}{\lVert u \rVert^2} \cdot \sum_{j = 1}^nu_j^2, \hspace{1em} \text{ and } \hspace{1em} \lVert T(x_-) - T(x_0) \rVert \left| < \frac{\lambda_v}{\lVert v \rVert^2} \cdot \sum_{j = 1}^nv_j^2 \right|.$$ So, for all $x_+ \in B_{r_+}(x_0)$, \begin{align*}
+        \langle T(x_+)u_+, u_+ \rangle &= \langle T(x_+)u_+, u_+ \rangle + \langle (T(x_+) - T(x_0))u_+, u_+ \rangle \\ &\geq \langle T(x_+)u_+, u_+ \rangle - \left| \langle (T(x_+) - T(x_0))u_+, u_+ \rangle \right|.
+    \end{align*}
+    So, we get \begin{align*}
+        \left| \langle (T(x_+)-T(x_0))u_+,u_+  \rangle \right| &\leq \lVert T(x_+) - T(x_0) \rVert \cdot \lVert u_+ \rVert \cdot \lVert u_+ \rVert \tag*{(By triangle inequality)} \\ &= \lVert T(x_+) - T(x_0) \rVert \\ &< \frac{\lambda_+}{\lVert u \rVert^2} \cdot \sum_{j = 1}^nu_u^2.
+    \end{align*}
+    Thus, $\langle (T(x_+)-T(x_0))u_+,u_+  \rangle > 0$ for all $x_+ \in B_{r_+}(x_0)$. Also, $\langle T(x_0)u,u\rangle = \frac{\lambda_+}{\lVert u \rVert^2} \cdot sum_{j = 1}^n u_j^2$. Thus, $\langle (T(x_+)-T(x_0))u_+,u_+  \rangle > 0$ for all $x_+ \in B_{r_+}(x_0)$. In a similar argument, one can show that $\langle T(x_-)v,v\rangle < 0$ for all $x_- \in B_{r_-}(x_0)$. Now, let $r = \min\{r_+,r_-\}$. Therefore, $\langle (T(x)u_+,u_+ \rangle > 0$ and $\langle T(x_-)v,v\rangle < 0$ for all $x \in B_r(x_o)$
+    \end{sol}
+    
+    \item[(b)] Let $U \subseteq \mathbb{R}^n$ be open, let $a \in U$, let $f : U \to \mathbb{R}$ be a $C^2$ function, and suppose that $f'(a) = 0$. Suppose further that $f''(a)$ is neither positive nor negative semidefinite. Prove that $f$ does not have a local extremum at $a$.
+    
+    \begin{sol}
+    Let $U \subseteq \mathbb{R}^n$ be open, let $a \in U$, let $f : U \to \mathbb{R}$ be a $C^2$ function, and suppose that $f'(a) = 0$. Suppose further that $f''(a)$ is neither positive nor negative semidefinite. So, $f''(a)$ has a positive and negative eigenvalue. Hence, by the previous part, there exists $u_+,v_- \in \mathbb{R}^n$ and $r > 0$ such that for all $x \in B_r(a)$, then $\langle f''(a),u_+, u_+ \rangle > 0$ and $\langle f''(a)v_-, v_- \rangle$. Let $r_1 > 0$ be arbitrary but fixed. Then let $s = \min\{r,r_1\}$. So, $(a+\frac{v_-}{2s}),(a+\frac{v_-}{2s}) \in B_r(a)$ and $(a+\frac{v_-}{2s}),(a+\frac{v_-}{2s}) \in B_{r_1}(a)$. Then, \begin{align}
+        f(a + \frac{u_+}{2s} &= f(a) + f'(a)\frac{u_+}{2s} + \frac{1}{2}f''(a + \theta_+ \frac{u_+}{2s})(\frac{u_+}{2s},\frac{u_+}{2s}) \tag*{($0 < \theta_+ < 1$)} \\ &= f(a) +  \frac{1}{2}f''(a + \theta_+ \frac{u_+}{2s})(\frac{u_+}{2s},\frac{u_+}{2s}) \tag*{(Since we know $f'(a) = 0$)} \\ &= f(a) + \frac{1}{2}\langle f''(a + \theta_+\frac{u_+}{2s})\frac{u_+}{2s},\frac{u_+}{2s}\rangle \\ &= f(a) + \frac{1}{8s^2}\langle f''(a + \theta_+\frac{u_+}{2s})u_+,u_+\rangle.
+    \end{align}
+    Thus, $\langle f''(a + \theta_+\frac{u_+}{2s})u_+,u_+\rangle > 0$ since $(a + \theta_+\frac{u_+}{2s}) \in B_r(a)$. In a similar argument, one can show that $\langle f''(a + \theta_-\frac{v_-}{2s})v_-,v_-\rangle < 0$. So, $f(a + \frac{u_+}{2s}) = f(a) + \frac{1}{8s^2}\langle f''(a + \theta_+\frac{u_+}{2s})u_+,u_+\rangle$ and $f(a + \frac{v_-}{2s}) = f(a) + \frac{1}{8s^2}\langle f''(a + \theta_+\frac{v_-}{2s})v_-,v_-\rangle$, which implies $f(a + \frac{u_+}{2s}) > f(a)$ and $f(a + \frac{v_-}{2s})  < f(a)$. Therefore, there exists $x,y \in B_{r_1}(a)$ such that $f(x) > a$ and $f(y) < f(a)$. Therefore, $f$ has no local extrema at $a$.
+    \end{sol}
+\end{itemize}
+\end{problem}
+
+\begin{problem}{19}
+    Let $f(x,y) = \frac{1}{1 - x - 2y}$ for (x,y) in a neighborhood of 0 in $\mathbb{R}^2$.
+    
+    \begin{itemize}
+        \item[(a)] Find $D_if(0,0)$ and $D_{ij}f(0,0)$ for $i,j = 1,2$. Calculate $P_2(x,y)$ using the formula for the second order Taylor polynomial.
+        
+        $$D_1f(0,0) = D_2f(0,0) = \frac{1}{9y^2-6y+1}, \hspace{2em} D_1D_2f(0,0) = \frac{1}{27y^2-27y+9y-1}$$ 
+        So, $P_2(x,y) = -\frac{1}{3y-1}+ \frac{x}{9y^2-6y+1} + \frac{1}{9y^2-6y+1} + \frac{x^2}{27y^2-27y+9y-1} + \frac{y^2}{27y^2-27y+9y-1} + \frac{2xy}{27y^2-27y+9y-1}$
+        
+        
+        \item[(b)] Use the formula for a geometric series to calculate $P_2(x,y)$.
+    \end{itemize}
+\end{problem}
+
+\begin{problem}{20}
+    Let $0 < r < R$ and define $f : \mathbb{R}^2 \to \mathbb{R}^3$ by $$f(\theta, \alpha) = \left( (R + r \cos \alpha)\cos \theta, (R + r \cos \alpha) \sin \theta, r \sin \alpha \right).$$ (The range, $T$, of $f$ is a \textit{torus}.)
+    
+    \begin{itemize}
+        \item[(a)] Find all points of the form $f(\theta, \alpha) \in T$ such that $Df_1 ( \theta, \alpha) = 0$. (Hint: your answer will be a finite subset of $\mathbb{R}^3$.)
+        
+        \begin{sol}
+        Let $0 < r < R$ and define $f : \mathbb{R}^2 \to \mathbb{R}^3$ by $$f(\theta, \alpha) = \left( (R + r \cos \alpha)\cos \theta, (R + r \cos \alpha) \sin \theta, r \sin \alpha \right).$$ Then, \begin{align*}
+            D_\theta f_1 &= -r\cos\alpha\sin\theta = 0 \Longrightarrow \alpha = 0, \pi, \hspace{1em} \theta = \frac{\pi}{2},\frac{3\pi}{2} \\ D_\alpha f_1 &= -r\cos\theta\sin\alpha = 0 \Longrightarrow \theta = 0,\pi, \hspace{1em} \alpha = \frac{\pi}{2}, \frac{3\pi}{2}. 
+        \end{align*}
+        So, in $\mathbb{R}^3$, we have the set of critical values $\{ (0,R+r,0), (0,R-r,0),(0,-R-r,0), (0,r-R,0), (R+r, 0, r), (R-r, 0,-r), (-R-r, 0, r), (r-R, 0, -r)\}$.
+        \end{sol}
+        
+        \item[(b)] Show that one of the points in part (a) corresponds to a local maximum of $f_1$, one corresponds to a local minimum of $f_1$ and the others are neither local maxima nor local minima of $f_1$.
+    \end{itemize}
+\end{problem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
