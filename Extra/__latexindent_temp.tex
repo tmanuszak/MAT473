@@ -996,32 +996,61 @@ Consider the equation $xe^y + ye^x = 0$.
     So, by subtracting the $m(A_1)$ terms from both sides, we get $$m(B_{\infty}) = \lim_{n \to \infty}m(A_n).$$
   \end{sol}
   
-  Now, it is important that $A_k < \infty$ for some $k \in \mathbb{Z}$. For example, if not, suppose $A_n = (n,\infty)$. Then, $m(A_n) = \infty$ for each $n$, but $\bigcap_{n = 1}^{\infty}A_n = \emptyset$. So, we get $$\infty = \lim_{n \to \infty} m(A_n) \neq m(\bigcap_{n = 1}^{\infty}A_n) = 0.$$
+  Now, it is important that $A_k < \infty$ for some $k \in \mathbb{Z}$. For example, if not, suppose $A_n = (n,\infty)$. Then, $A_n \supseteq A_{n+1} \supseteq A_{n + 2} \supseteq \dots$ and $m(A_n) = \infty$ for each $n$, but $\bigcap_{n = 1}^{\infty}A_n = \emptyset$. So, we get $$\infty = \lim_{n \to \infty} m(A_n) \neq m(\bigcap_{n = 1}^{\infty}A_n) = 0.$$
   
   \begin{problem}{39}
     Let $E$ be a measurable set, and let $\epsilon > 0$. Prove that there are an open $U \supseteq E$ and a closed set $F \subseteq E$ such that $m(U \setminus F) < \epsilon$. Here is an outline.
   
     \begin{itemize}
-      \item[(a)] Suppose that $E \supseteq [a,b]$. Use the definition of outer measure to find an open set $U \supseteq E$ with $m(U \setminus E) < \epsilon$.
+      \item[(a)] Suppose that $E \subseteq [a,b]$. Use the definition of outer measure to find an open set $U \supseteq E$ with $m(U \setminus E) < \epsilon$.
       \item[(b)] Suppose that $E \subseteq [a,b]$. Apply the previous part to $[a,b] \setminus E$ to prove that there is a closed set $F \subseteq E$ with $m(E \setminus F) < \epsilon$.
       \item[(c)] For the general case let $E_n = E \cap [n,n+1]$ for $n \in \mathbb{Z}$, and apply the previous two parts with $\epsilon4^{-(|n|+1)}$. Use the fact that if $S_n \subseteq T_n$ then $(\cup_nT_n) \setminus (\cup_nS_n) \subseteq \cup_n(T_n \setminus S_n)$.
     \end{itemize}
   \end{problem}
   \begin{sol}
+    Let $E$ be a measurable set with $m(E) < \infty$, and let $\epsilon > 0$ be arbitrary but fixed. Then, there are intervals $(a_n,b_n)$ with $E \subseteq \bigcup_{n = 1}^{\infty}(a_n,b_n)$ and $m(E) \leq \sum_{n = 1}^{\infty}m((a_n,b_n)) + \epsilon$. Define $U = \bigcup_{n = 1}^{\infty}(a_n,b_n)$. Then, $U \supseteq E$ is open and $m(U) \leq m(E) + \epsilon$. Now, since $m(U) < \infty$ and $m(E) < \infty$, then $m(U \setminus E) = m(U) - m(E) < \epsilon$.
     
+    Then, since $E$ is measurable, then $E^c$ is measurable. So, there exists $O \supseteq E^c$ open such that $m(O \setminus E^c) \leq \epsilon$. Let $F = O^c$, which implies $F$ is closed and $F \subseteq E$. Then, $E \setminus F = O \setminus E^c$, which implies $m(E \setminus F) \leq \epsilon$. 
+  
+    Now, let $U \supseteq E$ open and $F \subseteq E$ be closed such that $m(U \setminus E) < \frac{\epsilon}{2}$ and $m(E \setminus F) < \frac{\epsilon}{2}$. Note, 
+    \begin{align*}
+      (U \setminus E) \cup (E \setminus F) &= (U \cap E^c) \cup (E \cap F^c) \\
+      &= \left[(U \cap E^c) \cup E\right] \cap \left[(U \cap E^c) \cup F^c\right] \\
+      &= \left[(U \cup E) \cap (E \cup E^c)\right] \cap \left[(U \cup F^c) \cap (E^c \cup F^c)\right] \\
+      &= (U \cup E) \cap \left[(F \setminus U)^c \cap F^c\right] \\
+      &= U \cap (\emptyset^c \cap F^c) \\
+      &= U \cap F^c \\ &= U \setminus F.
+    \end{align*}
+    This gives us $$m(U \setminus F) = m\left( (U \setminus E \right) + m\left( (E \setminus F) \right) < \epsilon.$$
   \end{sol}
   
   \begin{problem}{40}
     The \textit{Cantor set}, $C$, is a subset of $[0,1]$ defined as follows. Let $F_0 = [0,1], F_1 = [0,\frac{1}{3}]\cup[\frac{2}{3},1]$, and in general, $F_{n+1}$ is obtained from $F_n$ by deleting the middle open third of each subinterval of $F_n$. (Thus $F_2 = [0,\frac{1}{9}]\cup[\frac{2}{9},\frac{1}{3}]\cup[\frac{2}{3},\frac{7}{9}]\cup[\frac{8}{9},1]$.) Then $C \coloneqq \cap_{n = 1}^{\infty}F_n$. Prove the following:
     \begin{itemize}
       \item[(a)] $F_n$ is the union of $2^n$ pairwise disjoint closed intervals each of length $3^{-n}$.
+       
+      \begin{sol}
+        Clearly, they are disjoint as you are removing the open middle third of each interval, essentialy doubling the amount of intervals each iteration. Thus, there are $2^n$ disjoint intervals for $F_n$. As for the length, $F_0$ has length $3^{-0} = 1$, and through induction, one can clearly see, without loss of generality, by taking the first of the $2^n$ intervals in $F_n$, call it $A$, that $\sup\{x - 0 : x \in A\} = 3^{-n}$.
+      \end{sol}
+  
       \item[(b)] $m(C) = 0$.
+      
+      \begin{sol}
+        By continuity from above of Lebesgue measure, we know that 
+        \begin{align*}
+          m(C) &= m\left(\bigcap_{n = 1}^{\infty}F_n\right) \\
+          &= \lim_{n \to \infty} m(F_n) \\
+          &= 0 \tag*{(Since $m(F_n = \left(\frac{2}{3} \right)^n)$)}.
+        \end{align*}
+      \end{sol}
+  
       \item[(c)] $C$ is a closed set, $C$ has no isolated points, and the interior of $C$ is empty.  
+      
+      \begin{sol}
+        Since $C$ is a countable union of closed intervals, then $C$ is closed.
+      \end{sol}
     \end{itemize}
   \end{problem}
-  \begin{sol}
-    
-  \end{sol}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.
 \end{document}
