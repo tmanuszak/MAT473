@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
 \documentclass[12pt]{article}
- \usepackage[margin=1in, bottom=4.5cm]{geometry}
+\usepackage[margin=1in, bottom=4.5cm]{geometry}
 \usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ, scrextend, mathtools}
 \usepackage[table,dvipsnames]{xcolor}
 \usepackage{tikz}  
@@ -63,18 +63,31 @@
   Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \subseteq A_2 \subseteq A_3 \subseteq \dots$. Prove that $m(\cup _{n = 1}^{\infty}A_n) = \lim_{n \to \infty}m(A_n)$. (This is called \textit{continuity from below} of Lebesgue measure.) (Hints: use Proposition 16.4 of the notes. It is useful also to remember that $\sum_{n = 1}^{\infty}a_n = \lim_{n \to \infty}\sum_{i = 1}^{n}a_i$.)
 \end{problem}
 \begin{sol}
-  
+  Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \subseteq A_2 \subseteq A_3 \subseteq \dots$. Suppose $\lim_{N \to \infty} \bigcup_{n = 1}^NA_n = A$. From Proposition 16.4, we know $$A = A_1 \cup \bigcup_{n = 1}^{\infty}(A_{n+1}  \setminus A_n).$$ Note, $A_1$ and $\bigcup_{n = 1}^{\infty}(A_{n+1}  \setminus A_n)$ are disjoint and $A$ is a $\sigma$-algebra. Since they are disjoint and measurable, then we have 
+  \begin{align*}
+    m(A) &= \sum_{n = 1}^{\infty}m(A_n \setminus A_{n-1}) \\
+    &= \lim_{n \to \infty} \sum_{i = 1}^n m(A_i \setminus A_{i - 1}) \\
+    &= \lim_{n \to \infty} m(A_n).
+  \end{align*}
 \end{sol}
 
 \begin{problem}{38}
-  Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \supseteq A_2 \supseteq A_3 \supseteq \dots$. Suppose further that $m(A_1) < \infty$. Prove that $m(\cap_{n = 1}^{\infty}) = \lim_{n \to \infty}m(A_n)$. Be sure to indicate where the finiteness hypothesis is used. (This is called \textit{continuity from above} of Lebesgue measure.) (Hints: as in the previous problem. Also, you will need to consider $B_{\infty} \coloneqq \cap_{n = 1}^{\infty}A_n$.) Give an example of a decreasing sequence of measurable sets of infinite measure for which the above conclusion is false. 
+  Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \supseteq A_2 \supseteq A_3 \supseteq \dots$. Suppose further that $m(A_1) < \infty$. Prove that $m(\cap_{n = 1}^{\infty}A_n) = \lim_{n \to \infty}m(A_n)$. Be sure to indicate where the finiteness hypothesis is used. (This is called \textit{continuity from above} of Lebesgue measure.) (Hints: as in the previous problem. Also, you will need to consider $B_{\infty} \coloneqq \cap_{n = 1}^{\infty}A_n$.) Give an example of a decreasing sequence of measurable sets of infinite measure for which the above conclusion is false. 
 \end{problem}
 \begin{sol}
-  
+  Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \supseteq A_2 \supseteq A_3 \supseteq \dots$. Suppose further that $m(A_1) < \infty$ and $B_{\infty} \coloneqq \lim_{N \to \infty}\bigcap_{n = 1}^NA_n$. Note, $m(A_1 \setminus B_{\infty}) = \lim_{n \to \infty}m(A_1 \setminus A_n)$. Also, $m(B_{\infty}) \leq m(A_n) \leq m(A_1) < \infty$. So, by Problem 37, 
+  \begin{align*}
+    m(A_1) - m(B_{\infty}) &= m(A_1 \setminus B_{\infty}) \\
+    &= \lim_{n \to \infty} m(A_1 \setminus A_n) \\
+    &= m(A_1) - \lim_{n \to \infty} m(A_n).
+  \end{align*}
+  So, by subtracting the $m(A_1)$ terms from both sides, we get $$m(B_{\infty}) = \lim_{n \to \infty}m(A_n).$$
 \end{sol}
 
+Now, it is important that $A_k < \infty$ for some $k \in \mathbb{Z}$. For example, if not, suppose $A_n = (n,\infty)$. Then, $m(A_n) = \infty$ for each $n$, but $\bigcap_{n = 1}^{\infty}A_n = \emptyset$. So, we get $$\infty = \lim_{n \to \infty} m(A_n) \neq m(\bigcap_{n = 1}^{\infty}A_n) = 0.$$
+
 \begin{problem}{39}
-  Let $E$ be a measurable set, and let $\epsilon > 0$. Prove that there are an open $U \supseteq E$ and a closed set $F \subseteq E$ such that $m(E \setminus F) < \epsilon$. Here is an outline.
+  Let $E$ be a measurable set, and let $\epsilon > 0$. Prove that there are an open $U \supseteq E$ and a closed set $F \subseteq E$ such that $m(U \setminus F) < \epsilon$. Here is an outline.
 
   \begin{itemize}
     \item[(a)] Suppose that $E \supseteq [a,b]$. Use the definition of outer measure to find an open set $U \supseteq E$ with $m(U \setminus E) < \epsilon$.

@@ -971,44 +971,57 @@ Consider the equation $xe^y + ye^x = 0$.
   %\end{itemize}
   %\end{lemma}
 
-\begin{problem}{37}
-  Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \subseteq A_2 \subseteq A_3 \subseteq \dots$. Prove that $m(\cup _{n = 1}^{\infty}A_n) = \lim_{n \to \infty}m(A_n)$. (This is called \textit{continuity from below} of Lebesgue measure.) (Hints: use Proposition 16.4 of the notes. It is useful also to remember that $\sum_{n = 1}^{\infty}a_n = \lim_{n \to \infty}\sum_{i = 1}^{n}a_i$.)
-\end{problem}
-\begin{sol}
+  \begin{problem}{37}
+    Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \subseteq A_2 \subseteq A_3 \subseteq \dots$. Prove that $m(\cup _{n = 1}^{\infty}A_n) = \lim_{n \to \infty}m(A_n)$. (This is called \textit{continuity from below} of Lebesgue measure.) (Hints: use Proposition 16.4 of the notes. It is useful also to remember that $\sum_{n = 1}^{\infty}a_n = \lim_{n \to \infty}\sum_{i = 1}^{n}a_i$.)
+  \end{problem}
+  \begin{sol}
+    Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \subseteq A_2 \subseteq A_3 \subseteq \dots$. Suppose $\lim_{N \to \infty} \bigcup_{n = 1}^NA_n = A$. From Proposition 16.4, we know $$A = A_1 \cup \bigcup_{n = 1}^{\infty}(A_{n+1}  \setminus A_n).$$ Note, $A_1$ and $\bigcup_{n = 1}^{\infty}(A_{n+1}  \setminus A_n)$ are disjoint and $A$ is a $\sigma$-algebra. Since they are disjoint and measurable, then we have 
+    \begin{align*}
+      m(A) &= \sum_{n = 1}^{\infty}m(A_n \setminus A_{n-1}) \\
+      &= \lim_{n \to \infty} \sum_{i = 1}^n m(A_i \setminus A_{i - 1}) \\
+      &= \lim_{n \to \infty} m(A_n).
+    \end{align*}
+  \end{sol}
   
-\end{sol}
-
-\begin{problem}{38}
-  Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \supseteq A_2 \supseteq A_3 \supseteq \dots$. Suppose further that $m(A_1) < \infty$. Prove that $m(\cap_{n = 1}^{\infty}) = \lim_{n \to \infty}m(A_n)$. Be sure to indicate where the finiteness hypothesis is used. (This is called \textit{continuity from above} of Lebesgue measure.) (Hints: as in the previous problem. Also, you will need to consider $B_{\infty} \coloneqq \cap_{n = 1}^{\infty}A_n$.) Give an example of a decreasing sequence of measurable sets of infinite measure for which the above conclusion is false. 
-\end{problem}
-\begin{sol}
+  \begin{problem}{38}
+    Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \supseteq A_2 \supseteq A_3 \supseteq \dots$. Suppose further that $m(A_1) < \infty$. Prove that $m(\cap_{n = 1}^{\infty}A_n) = \lim_{n \to \infty}m(A_n)$. Be sure to indicate where the finiteness hypothesis is used. (This is called \textit{continuity from above} of Lebesgue measure.) (Hints: as in the previous problem. Also, you will need to consider $B_{\infty} \coloneqq \cap_{n = 1}^{\infty}A_n$.) Give an example of a decreasing sequence of measurable sets of infinite measure for which the above conclusion is false. 
+  \end{problem}
+  \begin{sol}
+    Let $A_1,A_2,\dots$ be measurable sets, and suppose that $A_1 \supseteq A_2 \supseteq A_3 \supseteq \dots$. Suppose further that $m(A_1) < \infty$ and $B_{\infty} \coloneqq \lim_{N \to \infty}\bigcap_{n = 1}^NA_n$. Note, $m(A_1 \setminus B_{\infty}) = \lim_{n \to \infty}m(A_1 \setminus A_n)$. Also, $m(B_{\infty}) \leq m(A_n) \leq m(A_1) < \infty$. So, by Problem 37, 
+    \begin{align*}
+      m(A_1) - m(B_{\infty}) &= m(A_1 \setminus B_{\infty}) \\
+      &= \lim_{n \to \infty} m(A_1 \setminus A_n) \\
+      &= m(A_1) - \lim_{n \to \infty} m(A_n).
+    \end{align*}
+    So, by subtracting the $m(A_1)$ terms from both sides, we get $$m(B_{\infty}) = \lim_{n \to \infty}m(A_n).$$
+  \end{sol}
   
-\end{sol}
-
-\begin{problem}{39}
-  Let $E$ be a measurable set, and let $\epsilon > 0$. Prove that there are an open $U \supseteq E$ and a closed set $F \subseteq E$ such that $m(E \setminus F) < \epsilon$. Here is an outline.
-
-  \begin{itemize}
-    \item[(a)] Suppose that $E \supseteq [a,b]$. Use the definition of outer measure to find an open set $U \supseteq E$ with $m(U \setminus E) < \epsilon$.
-    \item[(b)] Suppose that $E \subseteq [a,b]$. Apply the previous part to $[a,b] \setminus E$ to prove that there is a closed set $F \subseteq E$ with $m(E \setminus F) < \epsilon$.
-    \item[(c)] For the general case let $E_n = E \cap [n,n+1]$ for $n \in \mathbb{Z}$, and apply the previous two parts with $\epsilon4^{-(|n|+1)}$. Use the fact that if $S_n \subseteq T_n$ then $(\cup_nT_n) \setminus (\cup_nS_n) \subseteq \cup_n(T_n \setminus S_n)$.
-  \end{itemize}
-\end{problem}
-\begin{sol}
+  Now, it is important that $A_k < \infty$ for some $k \in \mathbb{Z}$. For example, if not, suppose $A_n = (n,\infty)$. Then, $m(A_n) = \infty$ for each $n$, but $\bigcap_{n = 1}^{\infty}A_n = \emptyset$. So, we get $$\infty = \lim_{n \to \infty} m(A_n) \neq m(\bigcap_{n = 1}^{\infty}A_n) = 0.$$
   
-\end{sol}
-
-\begin{problem}{40}
-  The \textit{Cantor set}, $C$, is a subset of $[0,1]$ defined as follows. Let $F_0 = [0,1], F_1 = [0,\frac{1}{3}]\cup[\frac{2}{3},1]$, and in general, $F_{n+1}$ is obtained from $F_n$ by deleting the middle open third of each subinterval of $F_n$. (Thus $F_2 = [0,\frac{1}{9}]\cup[\frac{2}{9},\frac{1}{3}]\cup[\frac{2}{3},\frac{7}{9}]\cup[\frac{8}{9},1]$.) Then $C \coloneqq \cap_{n = 1}^{\infty}F_n$. Prove the following:
-  \begin{itemize}
-    \item[(a)] $F_n$ is the union of $2^n$ pairwise disjoint closed intervals each of length $3^{-n}$.
-    \item[(b)] $m(C) = 0$.
-    \item[(c)] $C$ is a closed set, $C$ has no isolated points, and the interior of $C$ is empty.  
-  \end{itemize}
-\end{problem}
-\begin{sol}
+  \begin{problem}{39}
+    Let $E$ be a measurable set, and let $\epsilon > 0$. Prove that there are an open $U \supseteq E$ and a closed set $F \subseteq E$ such that $m(U \setminus F) < \epsilon$. Here is an outline.
   
-\end{sol}
+    \begin{itemize}
+      \item[(a)] Suppose that $E \supseteq [a,b]$. Use the definition of outer measure to find an open set $U \supseteq E$ with $m(U \setminus E) < \epsilon$.
+      \item[(b)] Suppose that $E \subseteq [a,b]$. Apply the previous part to $[a,b] \setminus E$ to prove that there is a closed set $F \subseteq E$ with $m(E \setminus F) < \epsilon$.
+      \item[(c)] For the general case let $E_n = E \cap [n,n+1]$ for $n \in \mathbb{Z}$, and apply the previous two parts with $\epsilon4^{-(|n|+1)}$. Use the fact that if $S_n \subseteq T_n$ then $(\cup_nT_n) \setminus (\cup_nS_n) \subseteq \cup_n(T_n \setminus S_n)$.
+    \end{itemize}
+  \end{problem}
+  \begin{sol}
+    
+  \end{sol}
+  
+  \begin{problem}{40}
+    The \textit{Cantor set}, $C$, is a subset of $[0,1]$ defined as follows. Let $F_0 = [0,1], F_1 = [0,\frac{1}{3}]\cup[\frac{2}{3},1]$, and in general, $F_{n+1}$ is obtained from $F_n$ by deleting the middle open third of each subinterval of $F_n$. (Thus $F_2 = [0,\frac{1}{9}]\cup[\frac{2}{9},\frac{1}{3}]\cup[\frac{2}{3},\frac{7}{9}]\cup[\frac{8}{9},1]$.) Then $C \coloneqq \cap_{n = 1}^{\infty}F_n$. Prove the following:
+    \begin{itemize}
+      \item[(a)] $F_n$ is the union of $2^n$ pairwise disjoint closed intervals each of length $3^{-n}$.
+      \item[(b)] $m(C) = 0$.
+      \item[(c)] $C$ is a closed set, $C$ has no isolated points, and the interior of $C$ is empty.  
+    \end{itemize}
+  \end{problem}
+  \begin{sol}
+    
+  \end{sol}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.
 \end{document}

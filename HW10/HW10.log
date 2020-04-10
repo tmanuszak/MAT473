@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.4)  4 APR 2020 23:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.4)  9 APR 2020 21:28
 entering extended mode
 **c:/Users/trey1/Documents/MAT473/HW10/HW10.tex
 (c:/Users/trey1/Documents/MAT473/HW10/HW10.tex
@@ -535,7 +535,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/trey1/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] (c:\Users\trey1\Documents\MAT473\HW10\HW10.aux) ) 
+{C:/Users/trey1/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] (c:\Users\trey1\Documents\MAT473\HW10\HW10.aux) ) 
 Here is how much of TeX's memory you used:
  16289 strings out of 480931
  320328 string characters out of 2899796
@@ -543,11 +543,11 @@ Here is how much of TeX's memory you used:
  31836 multiletter control sequences out of 15000+200000
  540535 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,11n,81p,649b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 64i,12n,81p,652b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:\Users\trey1\Documents\MAT473\HW10\HW10.pdf (2 pages, 114837 bytes).
+Output written on c:\Users\trey1\Documents\MAT473\HW10\HW10.pdf (3 pages, 120727 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
+ 59 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
