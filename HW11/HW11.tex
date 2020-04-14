@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+\usepackage[margin=1in, bottom=4.5cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ, scrextend, mathtools}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{tikz}  
+\usepackage{tikz-3dplot} 
+\usepackage{amssymb}
+\usepackage{xifthen}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries
+#2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Proof.}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Trey Manuszak}  %replace with your name
+\rhead{MAT 473: Intermediate Real Analysis II \\ Homework 10: 41, 42, 43, 44} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{blindtext}
+\title{MAT 473: Intermediate Real Analysis II}
+\date{April 17, 2020}
+\author{Trey Manuszak\\ Arizona State University}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\maketitle
+\newpage
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{41}
+LEt $E$ be the nonmeasurable set desribed in section 18 of the notes. Prove that if $N \subseteq E$ and $N$ is measurable, then $m(N) = 0$. (Hint: imitate the second part of the proof of Theorem 18.1.)
+\end{problem}
+
+\begin{problem}{42}
+Let $A \subseteq \mathbb{R}$ be a measurable set with $m(A) > 0$. Prove that there exists a subset $B \subseteq A$ such that $B$ is not measurable. (Hint: if $E$ is the nonmeasurable set described in section 18 of the notes, then $A \subseteq \sqcup_{q \in \mathbb{Q}}(q+E)$.)
+\end{problem}
+
+\begin{problem}{43}
+Let $\mathcal{E}$ be a collection of Borel sets that generates $\mathcal{B}_{\mathbb{R}}$ (i.e. such that $\mathcal{M}(\mathcal{E}) = \mathcal{B}_{\mathbb{R}}$). Let $f : \mathbb{R} \to \mathbb{R}$. Prove that $f$ is measurable if and only if $f^{-1}(E)$ is measurable for all $E \in \mathcal{E}$. (Hint: show that $\{A \subseteq \mathbb{R} : f^{-1}(A)\text{ is measurable}\}$ is a $\sigma$-algebra.)
+\end{problem}
+
+\begin{problem}{44}
+Let $f_1,f_2,\dots : \mathbb{R} \to \mathbb{R}$ be measurable function, let $f : \mathbb{R} \to \mathbb{R}$, and suppose that $f_n \to f$ almost everywhere. Prove that $f$ is measurable.
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
