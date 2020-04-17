@@ -87,9 +87,28 @@ Let $A \subseteq \mathbb{R}$ be a measurable set with $m(A) > 0$. Prove that the
 Let $\mathcal{E}$ be a collection of Borel sets that generates $\mathcal{B}_{\mathbb{R}}$ (i.e. such that $\mathcal{M}(\mathcal{E}) = \mathcal{B}_{\mathbb{R}}$). Let $f : \mathbb{R} \to \mathbb{R}$. Prove that $f$ is measurable if and only if $f^{-1}(E)$ is measurable for all $E \in \mathcal{E}$. (Hint: show that $\{A \subseteq \mathbb{R} : f^{-1}(A)\text{ is measurable}\}$ is a $\sigma$-algebra.)
 \end{problem}
 
+\begin{sol} Suppose $\mathcal{E}$ is a collection of Borel sets that generates $\mathcal{B}_{\mathbb{R}}$.
+
+  ($\Longrightarrow$): Suppose $f$ is measurable for some $E \in \mathcal{E}$. Let $$\mathcal{G} = \{A \subseteq \mathbb{R} : f^{-1}(A)\text{ is measurable}\}.$$
+  Then, $\mathcal{G}$ is a $\sigma$-algebra since 
+  \begin{align*}
+    f^{-1}\left( \bigcup_{n \in \mathbb{N}}E_n  \right) &= \bigcup_{n \in \mathbb{N}}f^{-1}(E_n), \\
+    f^{-1}\left( \bigcap_{n \in \mathbb{N}}E_n  \right) &= \bigcap_{n \in \mathbb{N}}f^{-1}(E_n), \text{ and}\\
+    f^{-1}(E^c) &= \left(f^{-1}(E)\right)^c. \\
+  \end{align*}
+  Thus, $f^{-1}(E)$ is measurable for all $E \in \mathcal{E}$.
+
+  ($\Longleftarrow$): Suppose $f^{-1}(E)$ is measurable for some $E \in \mathcal{E}$. Then, $f$ is measurable by Definition 19.1.
+\end{sol}
+
 \begin{problem}{44}
 Let $f_1,f_2,\dots : \mathbb{R} \to \mathbb{R}$ be measurable function, let $f : \mathbb{R} \to \mathbb{R}$, and suppose that $f_n \to f$ almost everywhere. Prove that $f$ is measurable.
 \end{problem}
+
+\begin{sol}
+  Since $\{x \in \mathbb{R} : \lim_{n \to \infty} |f_n(x) - f(x)| \geq \epsilon \text{ } \forall \epsilon > 0\}$ is measurable with measure zero, then for $A \coloneqq \{x \in \mathbb{R} : \lim_{n \to \infty} |f_n(x) - f(x)| < \epsilon \text{ } \forall \epsilon > 0\} \subseteq \mathbb{R}$, we have 
+  $$\left\{\restr{f_n}{A}(x)\right\}_{n \in \mathbb{N}} \to f$$ pointwise, which implies $f$ is measurable by Proposition 19.16.  
+\end{sol}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.

@@ -1051,6 +1051,57 @@ Consider the equation $xe^y + ye^x = 0$.
       \end{sol}
     \end{itemize}
   \end{problem}
+
+  \begin{problem}{41}
+    Let $E$ be the nonmeasurable set desribed in section 18 of the notes. Prove that if $N \subseteq E$ and $N$ is measurable, then $m(N) = 0$. (Hint: imitate the second part of the proof of Theorem 18.1.)
+    \end{problem}
+    
+    \begin{sol}
+      Let $E$ be as described in section 18 of the notes. Let $N = \emptyset$. Then, $N \subseteq E$ and, trivially, $m(N) = 0$. So, there does exist a measurable subset of $E$. Now, suppose $N \subseteq E$ with $m(N) > 0$. Let $A = \mathbb{Q} \cap [0,1]$. Then, for each $x_1,x_2 \in A$, with $x_1 \neq x_2$, we know $$N + x_1 \bigcap N + x_2 = \emptyset.$$ Also, by translation invariance, $m(N) = m(N+x)$ for all $x \in A$. So, we have 
+      \begin{align*}
+        \sum_{n = 1}^{\infty} m(N) &= \sum_{n = 1}^{\infty} m(N + x_n) \tag*{(Each $x_n \in A$)} \\
+        &= m\left( \bigsqcup_{n = 1}^{\infty} N+x_n \right) \\
+        &\leq m([0,2]) \\ &= 2.
+      \end{align*}
+      Thus, by contradiction, since the first equivalence should clearly be infinity, we have $m(N) = 0$ for all measurable sets $N \subseteq E$.
+    \end{sol}
+    
+    \begin{problem}{42}
+    Let $A \subseteq \mathbb{R}$ be a measurable set with $m(A) > 0$. Prove that there exists a subset $B \subseteq A$ such that $B$ is not measurable. (Hint: if $E$ is the nonmeasurable set described in section 18 of the notes, then $A \subseteq \sqcup_{q \in \mathbb{Q}}(q+E)$.)
+    \end{problem}
+    
+    \begin{sol}
+      Let $A \subseteq \mathbb{R}$ with $m(A) > 0$. Without loss of generality, assume $A \subseteq [0,1]$ since if not, there is some $n \in \mathbb{Z}$ such that $m(A \cap [n,n+1]) > 0$ and by translation invariance, for $A' \coloneqq \{x-n : x \in [n,n+1]\}$, we have $A \cap A' \subseteq [0,1]$ and $m(A \cap A') > 0$. So, if $B \subseteq A \cap A'$ is nonmeasurable, then $B + n \subseteq A \cap [n,n+1] \subseteq A$ is nonmeasurable.
+    
+      Now, we know that $A$ is partitioned by the relation defined in section 18. By the axiom of choice, we can make a set $B \subseteq A$, which is the same as $E$ defined in section 18, which is nonmeasurable.
+    \end{sol}
+    
+    \begin{problem}{43}
+    Let $\mathcal{E}$ be a collection of Borel sets that generates $\mathcal{B}_{\mathbb{R}}$ (i.e. such that $\mathcal{M}(\mathcal{E}) = \mathcal{B}_{\mathbb{R}}$). Let $f : \mathbb{R} \to \mathbb{R}$. Prove that $f$ is measurable if and only if $f^{-1}(E)$ is measurable for all $E \in \mathcal{E}$. (Hint: show that $\{A \subseteq \mathbb{R} : f^{-1}(A)\text{ is measurable}\}$ is a $\sigma$-algebra.)
+    \end{problem}
+    
+    \begin{sol} Suppose $\mathcal{E}$ is a collection of Borel sets that generates $\mathcal{B}_{\mathbb{R}}$.
+    
+      ($\Longrightarrow$): Suppose $f$ is measurable for some $E \in \mathcal{E}$. Let $$\mathcal{G} = \{A \subseteq \mathbb{R} : f^{-1}(A)\text{ is measurable}\}.$$
+      Then, $\mathcal{G}$ is a $\sigma$-algebra since 
+      \begin{align*}
+        f^{-1}\left( \bigcup_{n \in \mathbb{N}}E_n  \right) &= \bigcup_{n \in \mathbb{N}}f^{-1}(E_n), \\
+        f^{-1}\left( \bigcap_{n \in \mathbb{N}}E_n  \right) &= \bigcap_{n \in \mathbb{N}}f^{-1}(E_n), \text{ and}\\
+        f^{-1}(E^c) &= \left(f^{-1}(E)\right)^c. \\
+      \end{align*}
+      Thus, $f^{-1}(E)$ is measurable for all $E \in \mathcal{E}$.
+    
+      ($\Longleftarrow$): Suppose $f^{-1}(E)$ is measurable for some $E \in \mathcal{E}$. Then, $f$ is measurable by Definition 19.1.
+    \end{sol}
+    
+    \begin{problem}{44}
+    Let $f_1,f_2,\dots : \mathbb{R} \to \mathbb{R}$ be measurable function, let $f : \mathbb{R} \to \mathbb{R}$, and suppose that $f_n \to f$ almost everywhere. Prove that $f$ is measurable.
+    \end{problem}
+    
+    \begin{sol}
+      Since $\{x \in \mathbb{R} : \lim_{n \to \infty} |f_n(x) - f(x)| \geq \epsilon \text{ } \forall \epsilon > 0\}$ is measurable with measure zero, then for $A \coloneqq \{x \in \mathbb{R} : \lim_{n \to \infty} |f_n(x) - f(x)| < \epsilon \text{ } \forall \epsilon > 0\} \subseteq \mathbb{R}$, we have 
+      $$\left\{\restr{f_n}{A}(x)\right\}_{n \in \mathbb{N}} \to f$$ pointwise, which implies $f$ is measurable by Proposition 19.16.  
+    \end{sol}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.
 \end{document}
