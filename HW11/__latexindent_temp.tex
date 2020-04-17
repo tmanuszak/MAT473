@@ -60,12 +60,28 @@
 
 %Copy the following block of text for each problem in the assignment.
 \begin{problem}{41}
-LEt $E$ be the nonmeasurable set desribed in section 18 of the notes. Prove that if $N \subseteq E$ and $N$ is measurable, then $m(N) = 0$. (Hint: imitate the second part of the proof of Theorem 18.1.)
+Let $E$ be the nonmeasurable set desribed in section 18 of the notes. Prove that if $N \subseteq E$ and $N$ is measurable, then $m(N) = 0$. (Hint: imitate the second part of the proof of Theorem 18.1.)
 \end{problem}
+
+\begin{sol}
+  Let $E$ be as described in section 18 of the notes. Let $N = \emptyset$. Then, $N \subseteq E$ and, trivially, $m(N) = 0$. So, there does exist a measurable subset of $E$. Now, suppose $N \subseteq E$ with $m(N) > 0$. Let $A = \mathbb{Q} \cap [0,1]$. Then, for each $x_1,x_2 \in A$, with $x_1 \neq x_2$, we know $$N + x_1 \bigcap N + x_2 = \emptyset.$$ Also, by translation invariance, $m(N) = m(N+x)$ for all $x \in A$. So, we have 
+  \begin{align*}
+    \sum_{n = 1}^{\infty} m(N) &= \sum_{n = 1}^{\infty} m(N + x_n) \tag*{(Each $x_n \in A$)} \\
+    &= m\left( \bigsqcup_{n = 1}^{\infty} N+x_n \right) \\
+    &\leq m([0,2]) \\ &= 2.
+  \end{align*}
+  Thus, by contradiction, since the first equivalence should clearly be infinity, we have $m(N) = 0$ for all measurable sets $N \subseteq E$.
+\end{sol}
 
 \begin{problem}{42}
 Let $A \subseteq \mathbb{R}$ be a measurable set with $m(A) > 0$. Prove that there exists a subset $B \subseteq A$ such that $B$ is not measurable. (Hint: if $E$ is the nonmeasurable set described in section 18 of the notes, then $A \subseteq \sqcup_{q \in \mathbb{Q}}(q+E)$.)
 \end{problem}
+
+\begin{sol}
+  Let $A \subseteq \mathbb{R}$ with $m(A) > 0$. Without loss of generality, assume $A \subseteq [0,1]$ since if not, there is some $n \in \mathbb{Z}$ such that $m(A \cap [n,n+1]) > 0$ and by translation invariance, for $A' \coloneqq \{x-n : x \in [n,n+1]\}$, we have $A \cap A' \subseteq [0,1]$ and $m(A \cap A') > 0$. So, if $B \subseteq A \cap A'$ is nonmeasurable, then $B + n \subseteq A \cap [n,n+1] \subseteq A$ is nonmeasurable.
+
+  Now, we know that $A$ is partitioned by the relation defined in section 18. By the axiom of choice, we can make a set $B \subseteq A$, which is the same as $E$ defined in section 18, which is nonmeasurable.
+\end{sol}
 
 \begin{problem}{43}
 Let $\mathcal{E}$ be a collection of Borel sets that generates $\mathcal{B}_{\mathbb{R}}$ (i.e. such that $\mathcal{M}(\mathcal{E}) = \mathcal{B}_{\mathbb{R}}$). Let $f : \mathbb{R} \to \mathbb{R}$. Prove that $f$ is measurable if and only if $f^{-1}(E)$ is measurable for all $E \in \mathcal{E}$. (Hint: show that $\{A \subseteq \mathbb{R} : f^{-1}(A)\text{ is measurable}\}$ is a $\sigma$-algebra.)
