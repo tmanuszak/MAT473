@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+\usepackage[margin=1in, bottom=4.5cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ, scrextend, mathtools}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{tikz}  
+\usepackage{tikz-3dplot} 
+\usepackage{amssymb}
+\usepackage{xifthen}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries
+#2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Proof.}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Trey Manuszak}  %replace with your name
+\rhead{MAT 473: Intermediate Real Analysis II \\ Homework 10: 41, 42, 43, 44} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{blindtext}
+\title{MAT 473: Intermediate Real Analysis II}
+\date{April 17, 2020}
+\author{Trey Manuszak\\ Arizona State University}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\maketitle
+\newpage
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{45}
+  Recall that a function $f : \mathbb{R} \to \overline{\mathbb{R}}$ is \textit{measurable} (or \textit{Lebesgue measurable} if for every Borel set $E$ in $\overline{\mathbb{R}}$, we have that $f^{-1}(E)$ is a (Lebesgue) measurable set (in $\mathbb{R}$).) We say that $f$ is \textit{Borel measurable} if for every Borel set $E \subseteq \overline{\mathbb{R}}$, $f^{-1}(E)$ is a Borel set.
+
+  Let $f : \mathbb{R} \to \mathbb{R}$ and $g : \mathbb{R} \to \overline{\mathbb{R}}$. Prove the following. 
+  \begin{itemize}
+    \item[(a)] If $f$ and $g$ are both Borel measurable, then $g \circ f$ is Borel measurable.
+    \item[(b)] If $f$ is measurable and $g$ is Borel measurable, then $g \circ f$ is measurable.
+  \end{itemize}
+  (It is a fact that there exists examples of measurable functions $f$ and $g$ such that $g \circ f$ is not measurable.)
+\end{problem}
+
+\begin{problem}{46}
+  Let $f$ be a nonnegative simple function. Define a function $\mu : \mathcal{L} \to [0,\infty]$ by $\mu(E) = \int(f \cdot \chi_E)$. Prove that $\mu$ is \textit{countably additive}: if $E_1, E_2, \dots$ are pairwise disjoint measurable sets, then $\mu(\cup_{i = 1}^{\infty}E_i) = \sum_{i = 1}^{\infty}m(E_i)$.
+\end{problem}
+
+\begin{problem}{47}
+  Let $f$ be a nonnegative simple function. Prove that the following conditions are equivalent:
+  \begin{itemize}
+    \item[(a)] $\int f = 0$
+    \item[(b)] $f = 0$ a.e.
+    \item[(c)] Let $f = \sum_{i = 1}^{n}a_i\chi A_i$ be any representation of $f$ with $a_i \geq 0$ for all $i$. For each $i$, if $a_i > 0$, then $m(A_i) = 0$.  
+  \end{itemize}
+\end{problem}
+
+\begin{problem}{48}
+  For $f,g : \mathbb{R} \to \mathbb{R}$ the \textit{join} of $f$ and $g$ is the function $f \vee g : \mathbb{R} \to \mathbb{R}$ defined by $$(f \vee g)(x) = \max\{f(x),g(x)\}$$ (i.e. the pointwise maximum of the two functions). The \textit{meet} is defined by $$(f \wedge g)(x) = \min\{f(x),g(x)\}.$$ The \textit{positive and negative parts} of $f$ are defined by $$f_+ = f \vee 0, \hspace{1em} f_- = -(f \wedge 0).$$ Prove the following.
+  \begin{itemize}
+    \item[(i)] If $f$ and $g$ are measurable then so are $f \vee g$ and $f \wedge g$.
+    \item[(ii)] $f_+ \geq 0,$ $f_- \geq 0$, and $f_+f_- = 0$.
+    \item[(iii)] $f = f_+-f_-$ and $|f| = f_++f_-$.
+    \item[(iv)] If $g,h \geq 0$ and $f = g - h$, then $g \geq f_+$ and $h \geq f_-$. Also, $g = f_+$ if and only if $h = f_-$, and this happens if and only if $gh = 0$.   
+  \end{itemize}
+\end{problem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
