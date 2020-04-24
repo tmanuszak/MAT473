@@ -1102,6 +1102,119 @@ Consider the equation $xe^y + ye^x = 0$.
       Since $\{x \in \mathbb{R} : \lim_{n \to \infty} |f_n(x) - f(x)| \geq \epsilon \text{ } \forall \epsilon > 0\}$ is measurable with measure zero, then for $A \coloneqq \{x \in \mathbb{R} : \lim_{n \to \infty} |f_n(x) - f(x)| < \epsilon \text{ } \forall \epsilon > 0\} \subseteq \mathbb{R}$, we have 
       $$\left\{\restr{f_n}{A}(x)\right\}_{n \in \mathbb{N}} \to f$$ pointwise, which implies $f$ is measurable by Proposition 19.16.  
     \end{sol}
+
+    \begin{problem}{45}
+        Recall that a function $f : \mathbb{R} \to \overline{\mathbb{R}}$ is \textit{measurable} (or \textit{Lebesgue measurable} if for every Borel set $E$ in $\overline{\mathbb{R}}$, we have that $f^{-1}(E)$ is a (Lebesgue) measurable set (in $\mathbb{R}$).) We say that $f$ is \textit{Borel measurable} if for every Borel set $E \subseteq \overline{\mathbb{R}}$, $f^{-1}(E)$ is a Borel set.
+      
+        Let $f : \mathbb{R} \to \mathbb{R}$ and $g : \mathbb{R} \to \overline{\mathbb{R}}$. Prove the following. 
+        \begin{itemize}
+          \item[(a)] If $f$ and $g$ are both Borel measurable, then $g \circ f$ is Borel measurable.
+          
+          \begin{sol}
+            Suppose $f : \mathbb{R} \to \mathbb{R}$ and $g : \mathbb{R} \to \overline{\mathbb{R}}$ are both Borel measurable. Note, that for every $E \subseteq \overline{\mathbb{R}}$ Borel, 
+            $$(g \circ f)^{-1}(E) = f^{-1}(g^{-1}(E)).$$
+            Since $E$ is borel and $g$ is Borel measurable, then $g^{-1}(E)$ is Borel. Since $f$ is Borel measurable and $g^{-1}(E)$ is Borel, then $f^{-1}(g^{-1}(E))$ is Borel, which implies $(g \circ f)^{-1}(E)$ is Borel. Therefore, $g \circ f$ is Borel measurable.
+          \end{sol}
+          
+          \item[(b)] If $f$ is measurable and $g$ is Borel measurable, then $g \circ f$ is measurable.
+          
+          \begin{sol}
+            Suppose $f : \mathbb{R} \to \mathbb{R}$ is measurable and $g : \mathbb{R} \to \overline{\mathbb{R}}$ is Borel measurable. Similarly, for every $E \subseteq \overline{\mathbb{R}}$ Borel, 
+            $$(g \circ f)^{-1}(E) = f^{-1}(g^{-1}(E)).$$
+            Since $g$ is Borel measurable and $E$ is Borel, then $g^{-1}(E)$ is Borel. Since $f$ is measurable and $g^{-1}(E)$ is Borel, then $f^{-1}(g^{-1}(E))$ is measurable, which implies $(g \circ f)^{-1}(E)$ is measurable. Therefore, $g \circ f$ is measurable.
+          \end{sol}
+        \end{itemize}
+        (It is a fact that there exists examples of measurable functions $f$ and $g$ such that $g \circ f$ is not measurable.)
+      \end{problem}
+      
+      \begin{problem}{46}
+        Let $f$ be a nonnegative simple function. Define a function $\mu : \mathcal{L} \to [0,\infty]$ by $\mu(E) = \int(f \cdot \chi_E)$. Prove that $\mu$ is \textit{countably additive}: if $E_1, E_2, \dots$ are pairwise disjoint measurable sets, then $\mu(\cup_{i = 1}^{\infty}E_i) = \sum_{i = 1}^{\infty}\mu(E_i)$.
+      \end{problem}
+      
+      \begin{sol}
+        For each $N > 0$, $\cup_{i = 1}^{N}E_i \subset \cup_{i = 1}^{\infty}E_i$, which implies $\mu \left( \bigcup_{j=1}^{N} E_i \right) \leq \mu \left( \bigcup_{i = 1}^{\infty} E_i \right)$. So, since each $E_i$ is disjoint and by finite subadditivity, we have $\sum_{i = 1}^{N} \mu(E_i) \leq \mu \left( \bigcup_{i = 1}^{\infty} E_i \right)$. Then, since $N$ does not determine the inequality, we have $\lim_{N \to \infty} \sum_{i = 1}^{N} \mu(E_i) = \sum_{i = 1}^{\infty} \mu(E_i) \leq \mu \left( \bigcup_{i = 1}^{\infty} E_i \right)$. Since countable subadditivity give the other direction of the inequality, we must have $\sum_{i = 1}^{\infty} \mu(E_i) = \mu \left( \bigcup_{i = 1}^{\infty} E_i \right)$, which implies $\mu$ is countably additive.
+      \end{sol}
+      
+      \begin{problem}{47}
+        Let $f$ be a nonnegative simple function. Prove that the following conditions are equivalent:
+        \begin{itemize}
+          \item[(a)] $\int f = 0$
+          \item[(b)] $f = 0$ a.e.
+          \item[(c)] Let $f = \sum_{i = 1}^{n}a_i\chi_{A_i}$ be any representation of $f$ with $a_i \geq 0$ for all $i$. For each $i$, if $a_i > 0$, then $m(A_i) = 0$.
+        \end{itemize}
+      
+        \begin{sol}
+          (a)$\Longrightarrow$(b): Suppose for some $X \in \text{dom}(f)$, $\int_X f = 0$. Let $\{x \in X : f(x) > 0\} = \cup_{n \in \mathbb{N}}\{x \in X : f(x) > \frac{1}{n}\}$. Then, 
+          \begin{align*}
+            m(\{x \in X : f(x) > \frac{1}{n}\}) &= \int_{\{x \in X : f(x) > \frac{1}{n}\}}1 \\
+            &= n \int_{\{x \in X : f(x) > \frac{1}{n}\}} \frac{1}{n} \\
+            &\leq n \int_{\{x \in X : f(x) > \frac{1}{n}\}} f \\
+            &\leq n \int_{X} f \\
+            &=0.
+          \end{align*}
+          Therefore, $m(\{x \in X : f(x) > \frac{1}{n}\}) = 0$, which implies $f = 0$ a.e.
+      
+          \vspace{1em}
+      
+          (b)$\Longrightarrow$(a): Let $A = \{x : f(x) = 0\}$ and $m(A^c) = 0$. Then, for $X \in \text{dom}(f)$, 
+          \begin{align*}
+            \int_X f &= \int_X f \cdot (\chi_A + \chi_{A^{c}}) \\
+            &= \int_X f \cdot \chi_A + \int_X f \cdot \chi_{A^{c}} \tag*{(Since $A \cap A^c = \emptyset$)} \\
+            &= \int_A f + \int_{A^c} f \\
+            &= 0.
+          \end{align*}
+      
+          \vspace{1em}
+      
+          (a)$\Longrightarrow$(c): Suppose that $\int_A f = 0$ where $A$ is a collection of disjoint sets. Thus, since $\int_E f = \int a_1\chi_{A_1} + \dots = 0$, then each term must be zero. That means that if $a_i > 0$ for some $i$, then $\chi_{A_i} = 0$, which implies $m(A_i) = 0$. 
+      
+          \vspace{1em}
+      
+          (c)$\Longrightarrow$(a): Suppose $f = \sum_{i = 1}^{n}a_i\chi_{A_i}$ be any representation of $f$ with $a_i \geq 0$ for all $i$. For each $i$, if $a_i > 0$, then $m(A_i) = 0$. Then, each term $a_i\chi_{A_i} = 0$ in the expansion of $f$, which implies $\int f = 0$.
+        \end{sol}
+      \end{problem}
+      
+      \begin{problem}{48}
+        For $f,g : \mathbb{R} \to \mathbb{R}$ the \textit{join} of $f$ and $g$ is the function $f \vee g : \mathbb{R} \to \mathbb{R}$ defined by $$(f \vee g)(x) = \max\{f(x),g(x)\}$$ (i.e. the pointwise maximum of the two functions). The \textit{meet} is defined by $$(f \wedge g)(x) = \min\{f(x),g(x)\}.$$ The \textit{positive and negative parts} of $f$ are defined by $$f_+ = f \vee 0, \hspace{1em} f_- = -(f \wedge 0).$$ Prove the following.
+        \begin{itemize}
+          \item[(i)] If $f$ and $g$ are measurable then so are $f \vee g$ and $f \wedge g$.
+          
+          \begin{sol}
+            Note, $\{x : (f \vee g)(x) > c\} = \{x : f(x) > c\} \cup \{x : g(x) > c\}$ and $\{x : (f \wedge g)(x) > c\} = \{x : f(x) > c\} \cap \{x : g(x) > c\}$. So, since the join and meet are a countable collection of union and intersected measurable sets, then the join and meet must also be measurable functions.
+          \end{sol}
+      
+          \item[(ii)] $f_+ \geq 0,$ $f_- \geq 0$, and $f_+f_- = 0$.
+          
+          \begin{sol} There are the three following cases,
+            $$f > 0 \longrightarrow f_+ > 0 \text{ and } f_- = 0 \Longrightarrow f_+f_- = 0,$$
+            $$f < 0 \Longrightarrow f_+ = 0 \text{ and } f_- > 0 \Longrightarrow f_+f_- = 0,$$
+            $$f = 0 \Longrightarrow f_+ = 0 \text{ and } f_- = 0 \Longrightarrow f_+f_- = 0.$$
+            Therefore, in all cases, $f_+ \geq 0,$ $f_- \geq 0$, and $f_+f_- = 0$.
+          \end{sol}
+      
+          \item[(iii)] $f = f_+-f_-$ and $|f| = f_++f_-$.
+          
+          \begin{sol}
+            Focusing on the first part, if $f > 0$, then $f_+ - f_- = f - 0 = f$. If $f < 0$, then $f_+ - f_- = 0 - (-f) = f$. If $f = 0$, then $f_+ - f_- = 0 - 0 = 0 = f$. Therefore, $f = f_+ - f_-$. 
+      
+            Now, on the second part, if $f > 0$, then $f_+ + f_- = f + 0 = f = |f|$. If $f < 0$, then $f_+ + f_- = 0 - f = |f|$. If $f = 0$, then $f_+ + f_- = 0 + 0 = 0$. Therefore, $|f| = f_+ + f_-$.
+          \end{sol}
+          
+          \item[(iv)] If $g,h \geq 0$ and $f = g - h$, then $g \geq f_+$ and $h \geq f_-$. Also, $g = f_+$ if and only if $h = f_-$, and this happens if and only if $gh = 0$.  
+          
+          \begin{sol}
+            From (iii), we know $f = f_+ - f_-$. Suppose $f = g - h$ and $g,h \geq 0$. So, $g - h$ = $f_+ - f_-$. There are three cases. 
+            
+            \hspace{1em} One, if $f > 0$, then either $g > h$, which implies the difference $g - h$ and $f_+ - f_-$ must be the same, which implies $g > f_+$ and $h > f_-$ and $gh > 0$, or the differences are the same, which implies $g = f_+$ and $h = f_-$ and $gh = 0$. 
+            
+            \hspace{1em} Two, if $f < 0$ imples either $g < h$, which implies $g > f_+$ and $h > f_-$ to make up for the difference, which implies $gh > 0$, or, as in the last case, the differences are the same, which implies $g = f_+$ and $h = f_-$ and $gh = 0$. 
+      
+            \hspace{1em} Lastly, if $f = 0$, then $g = h = 0$ and $f_+ = f_- = 0$, which implies $g = f_+$ and $h = f_-$, which implies $gh = 0$.
+      
+            \hspace{1em} Therefore, we have if $g,h \geq 0$ and $f = g - h$, then $g \geq f_+$ and $h \geq f_-$. Also, $g = f_+$ if and only if $h = f_-$, and this happens if and only if $gh = 0$. 
+          \end{sol}
+        \end{itemize}
+      \end{problem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.
 \end{document}

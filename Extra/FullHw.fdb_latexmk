@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1587158198 "c:/Users/trey1/Documents/MAT473/Extra/FullHw.tex" "c:\Users\trey1\Documents\MAT473\Extra/FullHw.pdf" "FullHw" 1587158202
+["pdflatex"] 1587744947 "c:/Users/trey1/Documents/MAT473/Extra/FullHw.tex" "c:\Users\trey1\Documents\MAT473\Extra/FullHw.pdf" "FullHw" 1587744954
   "473figure.PNG" 1586194305 11722 a70b5af59a02f5a48db0033d22500c8a ""
   "C:/Users/trey1/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt" 1586064741 10017265 1c53c179c9d56a9a7ce39a7f2b196f6d ""
-  "C:/Users/trey1/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map" 1586121038 77580 0902bf85dfadfdef13ad4bb0cb98be38 ""
+  "C:/Users/trey1/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map" 1587697269 77580 0902bf85dfadfdef13ad4bb0cb98be38 ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -156,14 +156,14 @@
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/tex/latex/xcolor/xcolor.sty" 1463135581 57049 34128738f682d033422ca125f82e5d62 ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/tex/latex/xifthen/xifthen.sty" 1448274436 5689 1bfa68243e89a54479e7d0580773c57e ""
-  "FullHw.aux" 1587158201 44 dc97af5c6f573c3ca8db466309c44817 "pdflatex"
-  "FullHw.tex" 1587158197 106817 616541fffc32928c731d48d0ffba0028 ""
-  "c:/Users/trey1/Documents/MAT473/Extra/FullHw.tex" 1587158197 106817 616541fffc32928c731d48d0ffba0028 ""
-  "c:\Users\trey1\Documents\MAT473\Extra/FullHw.aux" 1587158201 44 dc97af5c6f573c3ca8db466309c44817 ""
+  "FullHw.aux" 1587744953 44 dc97af5c6f573c3ca8db466309c44817 "pdflatex"
+  "FullHw.tex" 1587744943 115717 907ba8107b82f1e21a242b418ac5af16 ""
+  "c:/Users/trey1/Documents/MAT473/Extra/FullHw.tex" 1587744943 115717 907ba8107b82f1e21a242b418ac5af16 ""
+  "c:\Users\trey1\Documents\MAT473\Extra/FullHw.aux" 1587744953 44 dc97af5c6f573c3ca8db466309c44817 ""
   "hw 6 (1).PNG" 1586194058 120396 4548404fbe6eed5315b3028fd09cfe0c ""
   (generated)
   "FullHw.pdf"
+  "FullHw.log"
   "c:\Users\trey1\Documents\MAT473\Extra/FullHw.log"
   "c:\Users\trey1\Documents\MAT473\Extra/FullHw.pdf"
-  "FullHw.log"
   "FullHw.aux"

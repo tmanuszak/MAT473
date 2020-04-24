@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.4)  17 APR 2020 14:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.4)  24 APR 2020 09:15
 entering extended mode
 **c:/Users/trey1/Documents/MAT473/Extra/FullHw.tex
 (c:/Users/trey1/Documents/MAT473/Extra/FullHw.tex
@@ -577,7 +577,7 @@ Overfull \hbox (4.57547pt too wide) in paragraph at lines 948--949
 \OT1/cmr/m/n/12 is closed. We can sim-i-larly show that $[]$ is closed since $[] \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) =
  []
 
-[39] [40] [41] [42] [43] [44] (c:\Users\trey1\Documents\MAT473\Extra\FullHw.aux) ) 
+[39] [40] [41] [42] [43] [44] [45] [46] [47] (c:\Users\trey1\Documents\MAT473\Extra\FullHw.aux) ) 
 Here is how much of TeX's memory you used:
  16308 strings out of 480931
  320634 string characters out of 2899796
@@ -587,9 +587,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  64i,19n,81p,1846b,490s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:\Users\trey1\Documents\MAT473\Extra\FullHw.pdf (44 pages, 456967 bytes).
+Output written on c:\Users\trey1\Documents\MAT473\Extra\FullHw.pdf (47 pages, 471362 bytes).
 PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
+ 222 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
