@@ -63,7 +63,16 @@
 Prove Theorem 22.5 parts (iii) and (iv): Let $f,g : \mathbb{R} \to \overline{\mathbb{R}}$ be integrable functions.
 \begin{itemize}
   \item[(iii)] Suppose that $f \leq g$. Prove that $\int f \leq \int g$.
+  
+  \begin{sol}
+    Let $f,g : \mathbb{R} \to \overline{\mathbb{R}}$ be integrable functions and $f \leq g$. Then, by linearity, $$0 \leq \int (g - f) = \int g - \int f,$$ which implies $\int f \leq \int g$.
+  \end{sol}
+
   \item[(iv)] Prove that $\left| \int f \right| \leq \int | f |$. 
+   
+  \begin{sol}
+    Let $f : \mathbb{R} \to \overline{\mathbb{R}}$ be integrable Since $\left| f \right|$ is measurable and bounded and $-\left|f \right| \leq f \leq \left| f \right|$, by linearity and monotonicty, we get $$- \int \left| f \right| \leq \int f \int \left| f \right|.$$
+  \end{sol} 
 \end{itemize}
 \end{problem}
 
