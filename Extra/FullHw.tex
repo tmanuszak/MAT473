@@ -1215,6 +1215,36 @@ Consider the equation $xe^y + ye^x = 0$.
           \end{sol}
         \end{itemize}
       \end{problem}
+
+      \begin{problem}{49}
+        Prove Theorem 22.5 parts (iii) and (iv): Let $f,g : \mathbb{R} \to \overline{\mathbb{R}}$ be integrable functions.
+        \begin{itemize}
+          \item[(iii)] Suppose that $f \leq g$. Prove that $\int f \leq \int g$.
+          
+          \begin{sol}
+            Let $f,g : \mathbb{R} \to \overline{\mathbb{R}}$ be integrable functions and $f \leq g$. Then, by linearity, $$0 \leq \int (g - f) = \int g - \int f,$$ which implies $\int f \leq \int g$.
+          \end{sol}
+        
+          \item[(iv)] Prove that $\left| \int f \right| \leq \int | f |$. 
+           
+          \begin{sol}
+            Let $f : \mathbb{R} \to \overline{\mathbb{R}}$ be integrable Since $\left| f \right|$ is measurable and bounded and $-\left|f \right| \leq f \leq \left| f \right|$, by linearity and monotonicty, we get $$- \int \left| f \right| \leq \int f \leq \int \left| f \right|.$$ It follows that $\left| \int f \right| \leq \int | f |$.
+          \end{sol} 
+        \end{itemize}
+        \end{problem}
+        
+        \begin{problem}{50}
+        Compute the value of the limit $$\lim_{n \to \infty} \int_{0}^{\infty}\left( 1 + \frac{x}{n} \right)^{-n}\cos \frac{x}{n}dx.$$ Justify every step of your argument. (Hint: use the monotone convergence theorem, and the theorem on equality of the Reimann and Lebesgue integrals when both apply, to show that $e^{-x}$ is integrable on $[0,\infty)$. Then use the dominated convergence theorem.)
+        \end{problem}
+        
+        \begin{sol}
+          Let $f_n = \left( 1 + \frac{x}{n} \right)^{-n}\cos \frac{x}{n}$. Then, $f_n$ is pointwise convergent to $\frac{1}{e^x}$. Since $e^{-x}$ is integrable, then by the dominated convergence theorem, we have 
+          \begin{align*}
+            \lim_{n \to \infty} \int_{0}^{\infty}\left( 1 + \frac{x}{n} \right)^{-n}\cos \frac{x}{n}dx &= \int_{0}^{\infty} \lim_{n \to \infty} \left( 1 + \frac{x}{n} \right)^{-n}\cos \frac{x}{n}dx \\ &= \int_{0}^{\infty} e^{-x}dx \\ &= -e^{-x} + C.
+          \end{align*}
+        \end{sol}
+        
+        \noindent (Couldn't figure out how to use monotone convergence theorem to show $e^{-x}$ was integrable.)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.
 \end{document}
