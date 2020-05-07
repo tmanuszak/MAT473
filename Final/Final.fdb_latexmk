@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1588741155 "c:/Users/trey1/Documents/MAT473/Final/Final.tex" "c:/Users/trey1/Documents/MAT473/Final/Final.pdf" "Final" 1588741311
+["pdflatex"] 1588824590 "c:/Users/trey1/Documents/MAT473/Final/Final.tex" "c:/Users/trey1/Documents/MAT473/Final/Final.pdf" "Final" 1588824722
   "473finalpg1.pdf" 1588702851 333283 f3d54f1dd432121c0c58d7e8da76cf67 ""
   "C:/Users/trey1/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt" 1586064741 10017265 1c53c179c9d56a9a7ce39a7f2b196f6d ""
   "C:/Users/trey1/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map" 1588703087 77580 0902bf85dfadfdef13ad4bb0cb98be38 ""
@@ -160,13 +160,13 @@
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/tex/latex/xcolor/xcolor.sty" 1463135581 57049 34128738f682d033422ca125f82e5d62 ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/tex/latex/xifthen/xifthen.sty" 1448274436 5689 1bfa68243e89a54479e7d0580773c57e ""
   "C:/Users/trey1/AppData/Local/Programs/MiKTeX 2.9/tex/latex/yfonts/yfonts.sty" 1554482334 4491 ce392d5b8dc51027fcbcd62c6c980bc3 ""
-  "Final.aux" 1588741158 44 dc97af5c6f573c3ca8db466309c44817 "pdflatex"
-  "Final.tex" 1588741310 10781 8e9b283ef26fadaf7ba30e77e839a2b6 ""
-  "c:/Users/trey1/Documents/MAT473/Final/Final.aux" 1588741158 44 dc97af5c6f573c3ca8db466309c44817 ""
-  "c:/Users/trey1/Documents/MAT473/Final/Final.tex" 1588741310 10781 8e9b283ef26fadaf7ba30e77e839a2b6 ""
+  "Final.aux" 1588824594 44 dc97af5c6f573c3ca8db466309c44817 "pdflatex"
+  "Final.tex" 1588824720 12761 5cd806d0ecef96f02fb30bbcb2325f4a ""
+  "c:/Users/trey1/Documents/MAT473/Final/Final.aux" 1588824594 44 dc97af5c6f573c3ca8db466309c44817 ""
+  "c:/Users/trey1/Documents/MAT473/Final/Final.tex" 1588824720 12761 5cd806d0ecef96f02fb30bbcb2325f4a ""
   (generated)
-  "c:/Users/trey1/Documents/MAT473/Final/Final.pdf"
   "c:/Users/trey1/Documents/MAT473/Final/Final.log"
   "Final.aux"
-  "Final.pdf"
   "Final.log"
+  "c:/Users/trey1/Documents/MAT473/Final/Final.pdf"
+  "Final.pdf"

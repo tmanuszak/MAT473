@@ -114,7 +114,20 @@ Let $f : \mathbb{R} \to \mathbb{R}$ be Lipschitz, and let $E \subseteq \mathbb{R
 \end{problem}
 
 \begin{sol}
-  Let $f : \mathbb{R} \to \mathbb{R}$ be Lipschitz, and let $E \subseteq \mathbb{R}$ be a measurable set with $m(E) = 0$.
+  Let $f : \mathbb{R} \to \mathbb{R}$ be $C$-Lipschitz, with $C > 0$, and let $E \subseteq \mathbb{R}$ be a measurable set with $m(E) = 0$. Since $E$ has measure zero, for $\epsilon > 0$ arbitrary but fixed, there exists open intervals $A_n = (a - r_n, a + r_n)$, such that it creates a countable open cover, $E \subseteq \cup_{n \in \mathbb{N}}A_n$, and $m(E) \leq \sum_{n \in \mathbb{N}}m(A_n) < \epsilon$. Looking at each $n$, we have the following
+  \begin{align*}
+    m(f(A_n)) &= \left| f(a-r_n) - f(a+r_n) \right| \tag*{(By Lebesgue measure on $\mathbb{R}$)}\\
+    &\leq C \cdot \left| a - r_n - (a + r_n) \right| \tag*{(Since $f$ is $C$-Lipschitz)} \\
+    &= C \cdot \left| A_n \right|. 
+  \end{align*}
+  Now, we get
+  \begin{align*}
+    m(f(E)) &\leq m\left( f \left( \bigcup_{n \in \mathbb{N}}A_n \right) \right) \tag*{(By monotonicity)} \\
+    &= m \left( \bigcup_{n \in \mathbb{N}} f(A_n) \right) \tag*{(By continuity of $f$)} \\
+    &\leq \sum_{n \in \mathbb{N}} m(f(A_n)) \tag*{(By subadditivity and $C$-Lipschitz property of $f$)} \\
+    &< C \cdot \epsilon.
+  \end{align*}
+  \hspace{1em} Therefore, since epsilon was arbitrary, we can conclude $m(f(E)) = 0$.
 \end{sol}
 
 \begin{problem}{4}
@@ -130,12 +143,16 @@ Let $f : \mathbb{R} \to \mathbb{R}$ be a nonnegative measurable function. Suppos
             &\leq n \int_{X} f \\
             &=0.
           \end{align*}
-          Therefore, $m(E_n) = 0$, which implies $f = 0$ a.e., since $X$ was an arbitrary measurable set in the domain of $f$.
+          Therefore, $m(E_n) = 0$, which implies $f = 0$ a.e., since $X$ was an arbitrary measurable set in the domain of $f$ and $\{x \in X : f(x) > 0\} = \cup_{n \in \mathbb{N}}E_n$.
 \end{sol}
 
 \begin{problem}{5}
 For $n = 1,2,3,\dots$ let $f_n : \mathbb{R} \to \mathbb{R}$ be a nonnegative measurable function. Suppose that the sequence $(f_n)$ is decreasing, in the sense that for each $x \in \mathbb{R}$, $f_1(x) \geq f_2(x) \geq f_3(x) \geq \dots$. Suppose further that $\lim_{n \to \infty} \int f_n = 0$. Prove that $(f_n) \to 0$ almost everywhere.
 \end{problem}
+
+\begin{sol}
+  For $n = 1,2,3,\dots$ let $f_n : \mathbb{R} \to \mathbb{R}$ be a nonnegative measurable function. Suppose that the sequence $(f_n)$ is decreasing, in the sense that for each $x \in \mathbb{R}$, $f_1(x) \geq f_2(x) \geq f_3(x) \geq \dots$. Suppose further that $\lim_{n \to \infty} \int f_n = 0$. Since each $f_n$ is nonnegative measurable and pointwise decreasing as $n \to \infty$, then $(f_n) \to f$ pointwise for some $f$. By letting $g = f_1$, by Lebesgue's dominated convergence theorem, we know that $\int f = \lim_{n \to \infty} \int f_n$. Since $\lim_{n \to \infty} \int f_n = 0$ by assumption, then $\int f = 0$. By Exercise 21.6 (2), we know that since $\int f = 0$, then $f = 0$ almost everywhere. Therefore, since $\lim_{n \to \infty} f_n = f$, then $\lim_{n \to \infty} f_n \to 0$ almost everywhere, transitively.
+\end{sol}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.
 \end{document}
